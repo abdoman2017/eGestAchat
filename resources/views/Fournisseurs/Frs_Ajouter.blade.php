@@ -1,5 +1,6 @@
-@extends('layouts.biblio_materialize')
-@extends('layouts.navbar_menu_responsive')
+@extends('layouts.side_navbar')
+@section('ajouter_fournisseur')
+
 
 <div class="container-fluid">
 
@@ -11,11 +12,10 @@
 
     </header>
 
-
     <div id="form_frs_ajout">
         <div class="row">
-            <form class="col s12">
-
+            <form id="form_ajout_frs" class="col s12" action="{{ url('fournisseur') }}" method="post">
+                @csrf
 
                 <div class="input-field col s6">
                     <input id="nom_frs" type="text" class="validate" name="nom_frs">
@@ -59,7 +59,8 @@
 
                     <div id="enrg_frs_ajout">
 
-                        <a class="waves-effect waves-light btn">Enregistrer</a>
+                        <a class="waves-effect waves-light btn"
+                            onclick="document.getElementById('form_ajout_frs').submit();">Enregistrer</a>
 
                     </div>
                     <div id="anl_frs_ajout">
@@ -76,3 +77,4 @@
 
     </div>
 </div>
+@endsection
