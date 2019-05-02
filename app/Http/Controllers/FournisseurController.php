@@ -10,12 +10,13 @@ class FournisseurController extends Controller
 {
     public function index()
     {
-        return view('Fournisseurs.Frs_Ajouter');
+        $listeFrs = Fournisseur::all();
+        return view('Fournisseurs.Frs_listes', ['fournisseurs' => $listeFrs]);
     }
 
     public function create()
     {
-
+        return view('Fournisseurs.Frs_Ajouter');
     }
 
     public function store(Request $request)

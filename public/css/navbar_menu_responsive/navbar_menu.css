@@ -78,8 +78,16 @@
 
 
 
-
-
+/* les couleurs */
+.couleur_rouge {
+  color: red;
+}
+.couleur_vert {
+  color:green;
+}
+.couleur_bleu {
+  color: blue;
+}
 
 
 

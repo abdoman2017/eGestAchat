@@ -6,18 +6,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/navbar_menu_responsive/navbar_menu.css">
-
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="css/navbar_menu_responsive/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-    <!-- <script src="js/materialize.min.js"></script> -->
     <script src="js/materialize_0.100/materialize.min.js"></script>
 
     <script src="js/jquery/jquery.min.js"></script>
 
-    <!-- pour navbar -->
-    <!-- <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"> -->
+
 
 
 
@@ -47,7 +43,7 @@
 
             <ul class="collapsible" data-collapsible="accordion">
                 <li id="dash_users">
-                    <div id="dash_users_header" class="collapsible-header waves-effect"><b>Users</b></div>
+                    <div id="dash_users_header" class="collapsible-header waves-effect"><b>Fournisseurs</b></div>
                     <div id="dash_users_body" class="collapsible-body">
                         <ul>
                             <li id="users_seller">
@@ -107,13 +103,6 @@
     </ul>
 
     <!-- fin nav -->
-
-
-
-
-    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
-    <!-- <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script> -->
     <script src="js/Mon_JS.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -122,6 +111,7 @@
         $('select').material_select();
     });
     </script>
+    @yield('liste_fournisseur')
     @yield('ajouter_fournisseur')
 </body>
 
