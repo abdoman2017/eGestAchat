@@ -1,12 +1,26 @@
 @extends('layouts.side_navbar')
 @section('liste_fournisseur')
-<style>
-main {
-    padding-left: 245px;
-}
-</style>
+
 <main>
     <h3>Liste des Fournisseurs</h3>
+    <form action="{{url('stock/')}}" method="post">
+        @csrf
+
+        <div id="form_recherche">
+            <div id="champ_recherche">
+                <div class="input-field col s3">
+                    <input type="text" id="autocomplete-input" class="validate" name="recherche">
+                    <label for="autocomplete-input">Rechercher</label>
+                </div>
+            </div>
+            <div id="boutton_recherche">
+                <button class="btn btn-warning"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+
+
+
     <table class="highlight">
         <thead>
             <tr>
@@ -16,7 +30,8 @@ main {
                 <th>N° Tél</th>
                 <th>N° Fax</th>
                 <th>Email</th>
-                <th>Actions</th>
+                <th>Actions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{route('fournisseurs.create')}}"><i
+                            class="fas fa-user-plus couleur_vert" role="button"></i></a></th>
             </tr>
         </thead>
 
@@ -30,10 +45,16 @@ main {
                 <td>{{ $fournisseur->numero_fax }}</td>
                 <td>{{ $fournisseur->email }}</td>
                 <td>
-                    <i class="fas fa-user-plus couleur_vert"></i>
-                    <i class="fas fa-pen couleur_bleu"></i>
-                    <i class="far fa-trash-alt couleur_rouge"></i>
 
+
+                    <form action="{{ url('fournisseur/'.$fournisseur->id) }}" method="post">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <a href="{{ url('fournisseur/'.$fournisseur->id.'/edit') }}"> <i class="fas fa-pen couleur_bleu"
+                                role="button"></i></a>&nbsp;&nbsp;
+                        <button type="submit" class="far fa-trash-alt couleur_rouge" role="link"
+                            style="background: none; border: none;"></button>
+                    </form>
                 </td>
             </tr>
             @endforeach

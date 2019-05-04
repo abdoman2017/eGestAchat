@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateFournisseursTable extends Migration
 {
@@ -16,13 +16,13 @@ class CreateFournisseursTable extends Migration
         Schema::create('fournisseurs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
-            $table->string('abreviation');
+            $table->string('abreviation')->nullable();
             $table->string('adresse');
-            $table->string('numero_compte');
+            $table->string('numero_compte')->nullable();
             $table->string('numero_tel');
-            $table->string('numero_fax');
-            $table->string('email');
-
+            $table->string('numero_fax')->nullable();
+            $table->string('email')->nullable();
+            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

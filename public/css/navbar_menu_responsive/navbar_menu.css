@@ -1,6 +1,8 @@
 
 /* ajouter un fournisseur */
-
+.hauteurINPUT {
+  height: 10px;
+}
 #form_frs_ajout{
   width: 50%;
   float:center;
@@ -28,6 +30,28 @@
   width: 45%;
   margin-top: 10px;
   float: right; 
+}
+div#form_recherche div{
+  display: inline-block;
+}
+
+#champ_recherche{
+  width: 90%;
+  height: 70px;
+}
+#champ_recherche div{
+  float: right;
+  width: 300px;
+
+}
+#boutton_recherche{
+  width: 100px;
+  float: right;
+  height: 70px;
+}
+#boutton_recherche button{
+  float: left;
+  margin-top: 20px;
 }
 
 /* side navbar */
@@ -76,7 +100,9 @@
   color: white;
 }
 
-
+main {
+  padding-left: 245px;
+}
 
 /* les couleurs */
 .couleur_rouge {
@@ -89,6 +115,21 @@
   color: blue;
 }
 
+/* les messages */
+.msg {
+  
+  width:80%;
+  border: 1px solid;
+  padding:10px;
+  margin: 20px;
+  color: grey;
+  margin-left: 250px;
+}
+.msg-error {
+  border-color: #EF9A9A;
+  background-color: #EF9A9A;
+  color: white;
+}
 
 
 

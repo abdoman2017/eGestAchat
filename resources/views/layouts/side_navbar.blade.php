@@ -5,17 +5,12 @@
     <title></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/navbar_menu_responsive/navbar_menu.css">
-    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="css/navbar_menu_responsive/fontawesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-    <script src="js/materialize_0.100/materialize.min.js"></script>
-
-    <script src="js/jquery/jquery.min.js"></script>
-
-
-
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/navbar_menu_responsive/navbar_menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/navbar_menu_responsive/fontawesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.min.css') }}">
+    <script src="{{ asset('js/materialize_0.100/materialize.min.js') }}"></script>
+    <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
 
 </head>
 
@@ -26,18 +21,6 @@
     <ul id="slide-out" class="side-nav fixed z-depth-2">
         <div id="image_sidebar">
 
-
-            <!-- <li class="center no-padding"> -->
-            <!-- <div class="indigo darken-2 white-text" style="height: 180px;">
-        <div class="row">
-          <img style="margin-top: 5%;" width="100" height="100" src="https://res.cloudinary.com/dacg0wegv/image/upload/t_media_lib_thumb/v1463990208/photo_dkkrxc.png" class="circle responsive-img" />
-
-          <p style="margin-top: -13%;">
-            Tirth Patel
-          </p>
-        </div>
-      </div> -->
-            <!-- </li> -->
 
             <li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Dashboard</b></a></li>
 
@@ -102,8 +85,8 @@
         </div>
     </ul>
 
-    <!-- fin nav -->
-    <script src="js/Mon_JS.js"></script>
+
+    <script src="{{ asset('js/Mon_JS.js') }}"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         $('.button-collapse').sideNav();
@@ -113,6 +96,8 @@
     </script>
     @yield('liste_fournisseur')
     @yield('ajouter_fournisseur')
+    @yield('modifier_fournisseur')
+
 </body>
 
 </html>

@@ -14,19 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/menu', function () {
-    return view('layouts.navbar_menu_responsive');
-});
-// Route::get('/fournisseur',function(){
-//     return view('Fournisseurs.Frs_Ajouter');
-// });
 
-// Route::get('/fournisseur','FournisseurController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('fournisseur', 'FournisseurController@index');
-Route::get('fournisseur/create', 'FournisseurController@create');
+Route::get('fournisseur', 'FournisseurController@index')->name('fournisseurs.index');
+Route::get('fournisseur/create', 'FournisseurController@create')->name('fournisseurs.create');
 Route::post('fournisseur', 'FournisseurController@store');
 Route::get('fournisseur/{id}/edit', 'FournisseurController@edit');
 Route::put('fournisseur/{id}', 'FournisseurController@update');

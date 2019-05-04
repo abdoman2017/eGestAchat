@@ -1,61 +1,68 @@
 @extends('layouts.side_navbar')
-@section('ajouter_fournisseur')
+@section('modifier_fournisseur')
 <div class="container-fluid">
     <header>
         <center>
-            <h4>Nouveau Fournisseur</h4>
+            <h4>Modifier Fournisseur</h4>
         </center>
     </header>
 
+    @if ($errors->any())
+    <div class="msg msg-error z-depth-3 scale-transition">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
 
-
+    </div>
+    @endif
 
     <div id="form_frs_ajout">
         <div class="row">
-            <form id="form_ajout_frs" class="col s12" action="{{ url('fournisseur') }}" method="post">
+            <form id="form_ajout_frs" class="col s12" action="{{url('fournisseur/'.$fournisseur->id)}}" method="post">
+                <input type="hidden" name="_method" value="PUT">
                 @CSRF
 
-                <div class="input-field col s6 hauteurINPUT">
-                    <input id="nom_frs" type="text" class="form-control {{ $errors->has('nom_frs') ? 'is-invalid':'' }}"
-                        name="nom_frs" value="{{ old('nom_frs') }}">
+                <div class="input-field col s6">
+                    <input id="nom_frs" type="text" class="validate" name="nom_frs" value="{{ $fournisseur->nom }}">
                     <label for="nom_frs">Nom Fournisseur *</label>
-
-                    @if ($errors->get('nom_frs'))
-                    @foreach($errors->get('nom_frs') as $message)
-                    <span class="helper-text" data-error="wrong">{{ $message }}</span>
-                    @endforeach
-                    @endif
                 </div>
 
 
                 <div class="input-field col s6">
-                    <input id="abv_frs" type="text" class="validate" name="abv_frs" value="{{ old('abv_frs') }}">
+                    <input id="abv_frs" type="text" class="validate" name="abv_frs"
+                        value="{{ $fournisseur->abreviation }}">
                     <label for=" abv_frs">Abréviation Fournisseur</label>
                 </div>
 
 
                 <div class="input-field col s6">
-                    <input id="adr_frs" type="text" class="validate" name="adr_frs" value="{{ old('adr_frs') }}">
-                    <label for=" adr_frs">Adresse Fournisseur *</label>
+                    <input id="adr_frs" type="text" class="validate" name="adr_frs" value="{{ $fournisseur->adresse }}">
+                    <label for="adr_frs">Adresse Fournisseur *</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="cpt_frs" type="text" class="validate" name="cpt_frs" value="{{ old('cpt_frs') }}">
+                    <input id="cpt_frs" type="text" class="validate" name="cpt_frs"
+                        value="{{ $fournisseur->numero_compte }}">
                     <label for=" cpt_frs">N° Compte</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="tel_frs" type="text" class="validate" name="tel_frs" value="{{ old('tel_frs') }}">
+                    <input id="tel_frs" type="text" class="validate" name="tel_frs"
+                        value="{{ $fournisseur->numero_tel }}">
                     <label for=" tel_frs">N° Téléphone *</label>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="fax_frs" type="text" class="validate" name="fax_frs" value="{{ old('fax_frs') }}">
+                    <input id="fax_frs" type="text" class="validate" name="fax_frs"
+                        value="{{ $fournisseur->numero_fax }}">
                     <label for=" fax_frs">N° Fax</label>
                 </div>
 
                 <div class="input-field col s12">
-                    <input id="mail_frs" type="email" class="validate" name="mail_frs" value="{{ old('mail_frs') }}">
+                    <input id="mail_frs" type="email" class="validate" name="mail_frs"
+                        value="{{ $fournisseur->email }}">
                     <label for=" mail_frs">Mail</label>
                 </div>
 
