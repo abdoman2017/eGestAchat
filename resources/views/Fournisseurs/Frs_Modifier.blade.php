@@ -7,26 +7,20 @@
         </center>
     </header>
 
-    @if ($errors->any())
-    <div class="msg msg-error z-depth-3 scale-transition">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-
-    </div>
-    @endif
-
     <div id="form_frs_ajout">
         <div class="row">
             <form id="form_ajout_frs" class="col s12" action="{{url('fournisseur/'.$fournisseur->id)}}" method="post">
                 <input type="hidden" name="_method" value="PUT">
                 @CSRF
 
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUT">
                     <input id="nom_frs" type="text" class="validate" name="nom_frs" value="{{ $fournisseur->nom }}">
                     <label for="nom_frs">Nom Fournisseur *</label>
+                    @if ($errors->get('nom_frs'))
+                    @foreach($errors->get('nom_frs') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
 
 
@@ -37,9 +31,14 @@
                 </div>
 
 
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUT">
                     <input id="adr_frs" type="text" class="validate" name="adr_frs" value="{{ $fournisseur->adresse }}">
                     <label for="adr_frs">Adresse Fournisseur *</label>
+                    @if ($errors->get('adr_frs'))
+                    @foreach($errors->get('adr_frs') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
 
                 <div class="input-field col s6">
@@ -48,10 +47,15 @@
                     <label for=" cpt_frs">N° Compte</label>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUT">
                     <input id="tel_frs" type="text" class="validate" name="tel_frs"
                         value="{{ $fournisseur->numero_tel }}">
                     <label for=" tel_frs">N° Téléphone *</label>
+                    @if ($errors->get('tel_frs'))
+                    @foreach($errors->get('tel_frs') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
 
                 <div class="input-field col s6">

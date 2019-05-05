@@ -16,13 +16,12 @@
                 @CSRF
 
                 <div class="input-field col s6 hauteurINPUT">
-                    <input id="nom_frs" type="text" class="form-control {{ $errors->has('nom_frs') ? 'is-invalid':'' }}"
-                        name="nom_frs" value="{{ old('nom_frs') }}">
+                    <input id="nom_frs" type="text" class="validate" name="nom_frs" value="{{ old('nom_frs') }}">
                     <label for="nom_frs">Nom Fournisseur *</label>
 
                     @if ($errors->get('nom_frs'))
                     @foreach($errors->get('nom_frs') as $message)
-                    <span class="helper-text" data-error="wrong">{{ $message }}</span>
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
                     @endforeach
                     @endif
                 </div>
@@ -34,9 +33,14 @@
                 </div>
 
 
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUT">
                     <input id="adr_frs" type="text" class="validate" name="adr_frs" value="{{ old('adr_frs') }}">
                     <label for=" adr_frs">Adresse Fournisseur *</label>
+                    @if ($errors->get('adr_frs'))
+                    @foreach($errors->get('adr_frs') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
 
                 <div class="input-field col s6">
@@ -44,9 +48,14 @@
                     <label for=" cpt_frs">N° Compte</label>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUT">
                     <input id="tel_frs" type="text" class="validate" name="tel_frs" value="{{ old('tel_frs') }}">
                     <label for=" tel_frs">N° Téléphone *</label>
+                    @if ($errors->get('tel_frs'))
+                    @foreach($errors->get('tel_frs') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
 
                 <div class="input-field col s6">

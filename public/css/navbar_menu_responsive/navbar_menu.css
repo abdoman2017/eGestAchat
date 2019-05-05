@@ -75,7 +75,9 @@ div#form_recherche div{
 #dash_users_body a {
   color: white;
 }
-
+#users_seller {
+  width: 320px;
+}
 #dash_products_body {
   background: rgba(0, 0, 0, .2);
 }

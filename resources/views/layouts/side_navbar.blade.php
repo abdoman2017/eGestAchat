@@ -26,11 +26,13 @@
 
             <ul class="collapsible" data-collapsible="accordion">
                 <li id="dash_users">
-                    <div id="dash_users_header" class="collapsible-header waves-effect"><b>Fournisseurs</b></div>
+                    <div id="dash_users_header" class="collapsible-header waves-effect"><b>Gestion des Achats</b></div>
                     <div id="dash_users_body" class="collapsible-body">
                         <ul>
                             <li id="users_seller">
-                                <a class="waves-effect" style="text-decoration: none;" href="#!">Seller</a>
+                                <a class="waves-effect" style="text-decoration: none;"
+                                    href="{{route('fournisseurs.index')}}">Liste des
+                                    Fournisseurs</a>
                             </li>
 
                             <li id="users_customer">
