@@ -2,15 +2,18 @@
 @section('liste_fournisseur')
 
 <main>
+
     <h3>Liste des Fournisseurs</h3>
-    <form action="{{url('stock/')}}" method="post">
+
+    <form action="">
         @csrf
 
         <div id="form_recherche">
             <div id="champ_recherche">
                 <div class="input-field col s3">
-                    <input type="text" id="autocomplete-input" class="validate" name="recherche">
-                    <label for="autocomplete-input">Rechercher</label>
+                    <input type="text" id="input_recherche" class="validate" name="recherche"
+                        value="{{ request('recherche')}}">
+                    <label for=" autocomplete-input">Rechercher</label>
                 </div>
             </div>
             <div id="boutton_recherche">
@@ -56,10 +59,13 @@
                             style="background: none; border: none;"></button>
                     </form>
                 </td>
+
             </tr>
             @endforeach
 
         </tbody>
     </table>
+    <div style="float:right;">{{$fournisseurs->links()}}</div>
+
 </main>
 @endsection

@@ -11,7 +11,8 @@ class FournisseurController extends Controller
 {
     public function index()
     {
-        $listeFrs = Fournisseur::all();
+        $recherche = request('recherche');
+        $listeFrs = Fournisseur::rechercher($recherche)->paginate(6);
         return view('Fournisseurs.Frs_listes', ['fournisseurs' => $listeFrs]);
 
     }
