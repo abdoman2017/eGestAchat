@@ -49,7 +49,6 @@
                 <td>{{ $fournisseur->email }}</td>
                 <td>
 
-
                     <form action="{{ url('fournisseur/'.$fournisseur->id) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
