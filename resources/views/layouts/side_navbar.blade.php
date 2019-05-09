@@ -99,6 +99,7 @@
     @yield('liste_fournisseur')
     @yield('ajouter_fournisseur')
     @yield('modifier_fournisseur')
+    @yield('ajouter_utilisateur')
 
 </body>
 

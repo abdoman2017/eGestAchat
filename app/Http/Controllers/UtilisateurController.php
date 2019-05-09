@@ -24,7 +24,7 @@ class UtilisateurController extends Controller
      */
     public function create()
     {
-        //
+        return view('Utilisateurs.Utls_Ajouter');
     }
 
     /**

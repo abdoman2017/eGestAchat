@@ -10,6 +10,7 @@
   overflow: auto;
   display: inline-block;
   margin-top: 80px;
+  
 }
 
 
@@ -52,6 +53,36 @@ div#form_recherche div{
 #boutton_recherche button{
   float: left;
   margin-top: 20px;
+}
+
+/* ajouter un utilisateur */
+#form_utl_ajout{
+  width: 60%;
+  margin-left: 25%;
+  overflow: auto;
+  display: inline-block;
+  margin-top: 50px;
+  height: 550px;
+  background-color: red;
+}
+#switch_div{
+  display: inline-block;
+  width: 100%;
+  background-color: yellow;
+  overflow: auto;
+  vertical-align: text-top;
+ 
+}
+#switch_etat{
+float: right;
+background-color: #8c9eff;
+
+}
+#switch_label{
+background-color: #0059bc;
+width: 30%;
+margin-left: 50%;
+margin-top: 35px;
 }
 
 /* side navbar */
