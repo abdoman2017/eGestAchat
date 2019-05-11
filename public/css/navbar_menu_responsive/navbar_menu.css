@@ -65,24 +65,27 @@ div#form_recherche div{
   height: 550px;
   background-color: red;
 }
-#switch_div{
+#switch_div div{
   display: inline-block;
-  width: 100%;
+  /* width: 33%; */
   background-color: yellow;
-  overflow: auto;
-  vertical-align: text-top;
+  vertical-align: top;
  
+}
+#option_privilege{
+  background-color: #00C853;
+  
 }
 #switch_etat{
 float: right;
 background-color: #8c9eff;
-
+vertical-align: top;
 }
 #switch_label{
 background-color: #0059bc;
-width: 30%;
-margin-left: 50%;
-margin-top: 35px;
+/* width: 30%; */
+/* margin-left: 50%; */
+/* margin-top: 35px; */
 }
 
 /* side navbar */

@@ -84,7 +84,7 @@
 
                 </div>
                 <div id="switch_div">
-                    <div class="input-field col s6">
+                    <div id="option_privilege" class="input-field col s6">
                         <select>
                             <option value="" disabled selected>Choisissez un Privilège</option>
                             <option value="1">Option 1</option>
