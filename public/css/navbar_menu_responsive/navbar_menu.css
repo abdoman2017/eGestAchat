@@ -65,11 +65,17 @@ div#form_recherche div{
   height: 550px;
   background-color: red;
 }
+#switch_tous div{
+  /* vertical-align: top; */
+  display: block;
+  margin:0 10px;
+  
+}
 #switch_div div{
   display: inline-block;
-  /* width: 33%; */
-  background-color: yellow;
-  vertical-align: top;
+  /* background-color: yellow; */
+ /* vertical-align: top; */
+  width: 185px;
  
 }
 #option_privilege{
@@ -77,15 +83,22 @@ div#form_recherche div{
   
 }
 #switch_etat{
-float: right;
+/* float: right; */
 background-color: #8c9eff;
-vertical-align: top;
+height: 55px;
+
 }
 #switch_label{
 background-color: #0059bc;
-/* width: 30%; */
-/* margin-left: 50%; */
-/* margin-top: 35px; */
+height: 55px;
+}
+#switch_label label{
+  
+  bottom: 0;
+  
+  text-align: right;
+  /* line-height: 75px; */
+  
 }
 
 /* side navbar */

@@ -83,7 +83,7 @@
                     </select>
 
                 </div>
-                <div id="switch_div">
+                <div id="switch_tous">
                     <div id="option_privilege" class="input-field col s6">
                         <select>
                             <option value="" disabled selected>Choisissez un Privilège</option>
@@ -93,23 +93,23 @@
                         </select>
 
                     </div>
-
-                    <div id="switch_label">
-                        <label>Etat Compte:</label>
-                    </div>
-                    <div id="switch_etat">
-                        <div class="switch">
-                            <label>
-                                Désactivé
-                                <input type="checkbox" checked>
-                                <span class="lever"></span>
-                                Activé
-                            </label>
+                    <div id="switch_div">
+                        <div id="switch_label">
+                            <label>Etat Compte:</label>
+                        </div>
+                        <div id="switch_etat">
+                            <div class="switch">
+                                <label>
+                                    Désactivé
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span>
+                                    Activé
+                                </label>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-
 
                 <div id="btn_frs_ajout">
 
