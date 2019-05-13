@@ -14,7 +14,7 @@ class CreateProfilsTable extends Migration
     public function up()
     {
         Schema::create('profils', function (Blueprint $table) {
-            $table->integer('code_prf')->primary();
+            $table->string('code_prf')->primary();
             $table->string('libelle_prf');
             $table->timestamps();
         });

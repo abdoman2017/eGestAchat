@@ -14,7 +14,7 @@ class CreateStructuresTable extends Migration
     public function up()
     {
         Schema::create('structures', function (Blueprint $table) {
-            $table->integer('code_str')->primary();
+            $table->string('code_str')->primary();
             $table->string('libelle_str');
             $table->timestamps();
         });

@@ -18,10 +18,10 @@ class CreateUtilisateursTable extends Migration
             $table->string('nom_Utl');
             $table->string('prenom_Utl');
             $table->integer('etat_Utl');
-            $table->integer('direction_code_dr')->unsigned();
-            $table->integer('structure_code_str')->unsigned();
-            $table->integer('privilege_code_prv')->unsigned();
-            $table->integer('profil_code_prf')->unsigned();
+            $table->string('direction_code_dr');
+            $table->string('structure_code_str');
+            $table->string('privilege_code_prv');
+            $table->string('profil_code_prf');
             $table->datetime('deleted_at')->nullable();
             $table->timestamps();
             $table->foreign('direction_code_dr')->references('code_dr')->on('directions');

@@ -17,6 +17,7 @@
 #btn_frs_ajout {
   display: inline-block;
   width: 100%;
+  margin-top: 4%;
 }
 
 #enrg_frs_ajout {
@@ -56,48 +57,37 @@ div#form_recherche div{
 }
 
 /* ajouter un utilisateur */
+
 #form_utl_ajout{
   width: 60%;
   margin-left: 25%;
   overflow: auto;
   display: inline-block;
   margin-top: 50px;
-  height: 550px;
-  background-color: red;
+  height: 480px;
 }
 #switch_tous div{
   vertical-align: top;
   display: block;
-  margin:0 10px;
   
 }
 #switch_div div{
   display: inline-block;
-  /* background-color: yellow; */
- /* vertical-align: top; */
-  width: 150px;
+  margin:0 10px;
  
 }
-#option_privilege{
-  background-color: #00C853;
-  
-}
 #switch_etat{
-/* float: right; */
-background-color: #8c9eff;
 height: 55px;
-
+}
+#switch_etat div{
+  line-height: 75px;
 }
 #switch_label{
-background-color: #0059bc;
 height: 55px;
 }
 #switch_label label{
-  
-  /* bottom: 0; */
-  
-  /* text-align: right; */
-  /* line-height: 75px; */
+  color: #000;
+  line-height: 75px;
   
 }
 

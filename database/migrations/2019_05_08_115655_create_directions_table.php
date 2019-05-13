@@ -14,7 +14,7 @@ class CreateDirectionsTable extends Migration
     public function up()
     {
         Schema::create('directions', function (Blueprint $table) {
-            $table->integer('code_dr')->primary();
+            $table->string('code_dr')->primary();
             $table->string('libelle_dr');
             $table->timestamps();
         });

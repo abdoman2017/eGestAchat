@@ -31,3 +31,6 @@ Route::post('utilisateur', 'UtilisateurController@store');
 Route::get('utilisateur/{id}/edit', 'UtilisateurController@edit');
 Route::put('utilisateur/{id}', 'UtilisateurController@update');
 Route::delete('utilisateur/{id}', 'UtilisateurController@destroy');
+
+// route combobox
+Route::get('/dynamic_dependent', 'DynamicDependent@index');

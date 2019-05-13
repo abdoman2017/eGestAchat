@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Utilisateur;
 use Illuminate\Http\Request;
+use DB;
 
 class UtilisateurController extends Controller
 {
@@ -13,9 +14,7 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
+    { }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +23,9 @@ class UtilisateurController extends Controller
      */
     public function create()
     {
-        return view('Utilisateurs.Utls_Ajouter');
+        $liste_direction = DB::table('directions')->get();
+        $liste_structure = DB::table('structures')->get();
+        return view('Utilisateurs.Utls_Ajouter', ['liste_directions' => $liste_direction], ['liste_structures' => $liste_structure]);
     }
 
     /**

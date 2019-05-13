@@ -57,20 +57,20 @@
                 </div>
 
                 <div class="input-field col s6">
-                    <select>
+                    <select id="directions" name="directions" class="dynamic">
                         <option value="" disabled selected>Choisissez une Direction</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        @foreach($liste_directions as $direction)
+                        <option value="{{ $direction->libelle_dr }}">{{ $direction->libelle_dr }}</option>
+                        @endforeach
                     </select>
 
                 </div>
                 <div class="input-field col s6">
-                    <select>
+                    <select id="structures" name="structures">
                         <option value="" disabled selected>Choisissez une Structure</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        @foreach($liste_structures as $structure)
+                        <option value="{{ $structure->libelle_str }}">{{ $structure->libelle_str }}</option>
+                        @endforeach
                     </select>
 
                 </div>
