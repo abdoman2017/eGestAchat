@@ -66,7 +66,7 @@ div#form_recherche div{
   background-color: red;
 }
 #switch_tous div{
-  /* vertical-align: top; */
+  vertical-align: top;
   display: block;
   margin:0 10px;
   
@@ -75,7 +75,7 @@ div#form_recherche div{
   display: inline-block;
   /* background-color: yellow; */
  /* vertical-align: top; */
-  width: 185px;
+  width: 150px;
  
 }
 #option_privilege{
@@ -94,9 +94,9 @@ height: 55px;
 }
 #switch_label label{
   
-  bottom: 0;
+  /* bottom: 0; */
   
-  text-align: right;
+  /* text-align: right; */
   /* line-height: 75px; */
   
 }
