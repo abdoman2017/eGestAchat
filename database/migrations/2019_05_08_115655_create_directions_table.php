@@ -16,7 +16,8 @@ class CreateDirectionsTable extends Migration
         Schema::create('directions', function (Blueprint $table) {
             $table->string('code_dr')->primary();
             $table->string('libelle_dr');
-            $table->timestamps();
+            $table->dateTime('created_at', DB::raw(0))->nullable();
+            $table->dateTime('updated_at', DB::raw(0))->nullable();
         });
     }
 

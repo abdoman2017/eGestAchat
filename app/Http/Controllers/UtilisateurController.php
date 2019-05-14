@@ -25,7 +25,9 @@ class UtilisateurController extends Controller
     {
         $liste_direction = DB::table('directions')->get();
         $liste_structure = DB::table('structures')->get();
-        return view('Utilisateurs.Utls_Ajouter', ['liste_directions' => $liste_direction], ['liste_structures' => $liste_structure]);
+        $liste_profil = DB::table('profils')->get();
+        $liste_privilege = DB::table('privileges')->get();
+        return view('Utilisateurs.Utls_Ajouter', ['liste_directions' => $liste_direction, 'liste_structures' => $liste_structure, 'liste_profils' => $liste_profil, 'liste_privileges' => $liste_privilege]);
     }
 
     /**
@@ -36,7 +38,16 @@ class UtilisateurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $utilisateur = new Utilisateur();
+        $utilisateur->code_Utl = $request->input('nom_frs');
+        $utilisateur->nom_Utl = $request->input('abv_frs');
+        $utilisateur->prenom_Utl = $request->input('adr_frs');
+        $utilisateur->etat_Utl = $request->input('cpt_frs');
+        $utilisateur->numero_tel = $request->input('tel_frs');
+        $utilisateur->numero_fax = $request->input('fax_frs');
+        $utilisateur->email = $request->input('mail_frs');
+        $utilisateur->save();
+        return redirect()->route('fournisseurs.index');
     }
 
     /**

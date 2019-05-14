@@ -16,7 +16,8 @@ class CreateProfilsTable extends Migration
         Schema::create('profils', function (Blueprint $table) {
             $table->string('code_prf')->primary();
             $table->string('libelle_prf');
-            $table->timestamps();
+            $table->dateTime('created_at', DB::raw(0))->nullable();
+            $table->dateTime('updated_at', DB::raw(0))->nullable();
         });
     }
 

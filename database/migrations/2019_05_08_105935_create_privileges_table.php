@@ -16,7 +16,8 @@ class CreatePrivilegesTable extends Migration
         Schema::create('privileges', function (Blueprint $table) {
             $table->string('code_prv')->primary();
             $table->string('libelle_prv');
-            $table->timestamps();
+            $table->dateTime('created_at', DB::raw(0))->nullable();
+            $table->dateTime('updated_at', DB::raw(0))->nullable();
         });
     }
 

@@ -22,8 +22,9 @@ class CreateFournisseursTable extends Migration
             $table->string('numero_tel');
             $table->string('numero_fax')->nullable();
             $table->string('email')->nullable();
-            $table->datetime('deleted_at')->nullable();
-            $table->timestamps();
+            $table->dateTime('deleted_at', DB::raw(0))->nullable();
+            $table->dateTime('created_at', DB::raw(0))->nullable();
+            $table->dateTime('updated_at', DB::raw(0))->nullable();
         });
     }
 

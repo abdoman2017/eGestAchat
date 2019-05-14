@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fournisseur;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\fournisseurRequest;
+use App\Http\Requests\FournisseurRequest;
 use Illuminate\Http\Request;
 
 class FournisseurController extends Controller
@@ -14,7 +14,6 @@ class FournisseurController extends Controller
         $recherche = request('recherche');
         $listeFrs = Fournisseur::rechercher($recherche)->paginate(6);
         return view('Fournisseurs.Frs_listes', ['fournisseurs' => $listeFrs]);
-
     }
 
     public function create()
@@ -22,7 +21,7 @@ class FournisseurController extends Controller
         return view('Fournisseurs.Frs_Ajouter');
     }
 
-    public function store(fournisseurRequest $request)
+    public function store(FournisseurRequest $request)
     {
         $fournisseur = new Fournisseur();
         $fournisseur->nom = $request->input('nom_frs');
@@ -41,7 +40,7 @@ class FournisseurController extends Controller
         $fournisseur = Fournisseur::find($id);
         return view('Fournisseurs.Frs_Modifier', ['fournisseur' => $fournisseur]);
     }
-    public function update(fournisseurRequest $request, $id)
+    public function update(FournisseurRequest $request, $id)
     {
         $fournisseur = Fournisseur::find($id);
         $fournisseur->nom = $request->input('nom_frs');
@@ -60,5 +59,4 @@ class FournisseurController extends Controller
         $fournisseur->delete();
         return redirect()->route('fournisseurs.index');
     }
-
 }

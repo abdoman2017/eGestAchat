@@ -17,7 +17,7 @@
 
     <div id="form_utl_ajout">
         <div class="row">
-            <form id="form_ajout_utl" class="col s12" action="{{ url('fournisseur') }}" method="post">
+            <form id="form_ajout_utl" class="col s12" action="{{ url('utilisateur') }}" method="post">
                 @CSRF
 
                 <div class="input-field col s6">
@@ -60,7 +60,7 @@
                     <select id="directions" name="directions" class="dynamic">
                         <option value="" disabled selected>Choisissez une Direction</option>
                         @foreach($liste_directions as $direction)
-                        <option value="{{ $direction->libelle_dr }}">{{ $direction->libelle_dr }}</option>
+                        <option value="{{ $direction->code_dr }}">{{ $direction->libelle_dr }}</option>
                         @endforeach
                     </select>
 
@@ -69,7 +69,7 @@
                     <select id="structures" name="structures">
                         <option value="" disabled selected>Choisissez une Structure</option>
                         @foreach($liste_structures as $structure)
-                        <option value="{{ $structure->libelle_str }}">{{ $structure->libelle_str }}</option>
+                        <option value="{{ $structure->code_str }}">{{ $structure->libelle_str }}</option>
                         @endforeach
                     </select>
 
@@ -77,9 +77,9 @@
                 <div class="input-field col s6">
                     <select>
                         <option value="" disabled selected>Choisissez un Profil</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        @foreach($liste_profils as $profil)
+                        <option value="{{ $profil->code_prf }}">{{ $profil->libelle_prf }}</option>
+                        @endforeach
                     </select>
 
                 </div>
@@ -87,9 +87,9 @@
                     <div id="option_privilege" class="input-field col s6">
                         <select>
                             <option value="" disabled selected>Choisissez un Privilège</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            @foreach($liste_privileges as $privilege)
+                            <option value="{{ $privilege->code_prv }}">{{ $privilege->libelle_prv }}</option>
+                            @endforeach
                         </select>
 
                     </div>
@@ -121,7 +121,7 @@
                     </div>
                     <div id="anl_frs_ajout">
 
-                        <a href="{{route('fournisseurs.index')}}" class="waves-effect waves-light btn">Annuler</a>
+                        <a href="{{route('utilisateurs.index')}}" class="waves-effect waves-light btn">Annuler</a>
 
                     </div>
 

@@ -16,7 +16,8 @@ class CreateStructuresTable extends Migration
         Schema::create('structures', function (Blueprint $table) {
             $table->string('code_str')->primary();
             $table->string('libelle_str');
-            $table->timestamps();
+            $table->dateTime('created_at', DB::raw(0))->nullable();
+            $table->dateTime('updated_at', DB::raw(0))->nullable();
         });
     }
 
