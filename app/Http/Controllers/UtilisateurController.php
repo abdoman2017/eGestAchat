@@ -14,7 +14,11 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {}
+    {
+        $recherche = request('recherche');
+        $listeUtls = Utilisateur::rechercher($recherche)->paginate(6);
+        return view('Utilisateurs.Utls_Listes', ['utilisateurs' => $listeUtls]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -91,8 +95,10 @@ class UtilisateurController extends Controller
      * @param  \App\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Utilisateur $utilisateur)
+    public function destroy(Request $request, $code_Utl)
     {
-        //
+        $utilisateur = Utilisateur::find($code_Utl);
+        $utilisateur->delete();
+        return redirect()->route('utilisateurs.index');
     }
 }

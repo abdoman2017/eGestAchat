@@ -101,8 +101,8 @@
                             <div class="switch">
                                 <label>
                                     Désactivé
-                                    <input id="etat_compte" type="checkbox" name="etat_compte" checked>
-                                    <!-- <input id="etat_compte_desactive" type="hidden" name="etat_compte" value="0"> -->
+                                    <input id="etat_compte" type="checkbox" name="etat_compte" checked value="1">
+
                                     <span class="lever"></span>
                                     Activé
                                 </label>
@@ -111,21 +111,7 @@
                     </div>
 
                 </div>
-                <script type="text/javascript">
-                if (document.getElementById("etat_compte").checked = true) {
-                    var x = document.getElementById("etat_compte").value = 1;
-                    return x;
-                }
-                if (document.getElementById("etat_compte").checked = false) {
-                    var x = document.getElementById("etat_compte").value = 0
-                    return x;
-                }
-                // if (document.getElementById("etat_compte_active").checked) {
-                //     document.getElementById("etat_compte_active").value = 1
-                // } else {
-                //     document.getElementById("etat_compte_active").value = 0
-                // }
-                </script>
+
                 <div id="btn_frs_ajout">
 
                     <div id="enrg_frs_ajout">
