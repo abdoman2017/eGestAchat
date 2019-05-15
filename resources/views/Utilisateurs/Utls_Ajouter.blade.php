@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="input-field col s6">
-                    <select id="directions" name="directions" class="dynamic">
+                    <select id="directions" name="directions">
                         <option value="" disabled selected>Choisissez une Direction</option>
                         @foreach($liste_directions as $direction)
                         <option value="{{ $direction->code_dr }}">{{ $direction->libelle_dr }}</option>
@@ -75,7 +75,7 @@
 
                 </div>
                 <div class="input-field col s6">
-                    <select>
+                    <select name="profils">
                         <option value="" disabled selected>Choisissez un Profil</option>
                         @foreach($liste_profils as $profil)
                         <option value="{{ $profil->code_prf }}">{{ $profil->libelle_prf }}</option>
@@ -85,7 +85,7 @@
                 </div>
                 <div id="switch_tous">
                     <div id="option_privilege" class="input-field col s6">
-                        <select>
+                        <select name="privileges">
                             <option value="" disabled selected>Choisissez un Privilège</option>
                             @foreach($liste_privileges as $privilege)
                             <option value="{{ $privilege->code_prv }}">{{ $privilege->libelle_prv }}</option>
@@ -101,7 +101,8 @@
                             <div class="switch">
                                 <label>
                                     Désactivé
-                                    <input type="checkbox" checked>
+                                    <input id="etat_compte" type="checkbox" name="etat_compte" checked>
+                                    <!-- <input id="etat_compte_desactive" type="hidden" name="etat_compte" value="0"> -->
                                     <span class="lever"></span>
                                     Activé
                                 </label>
@@ -110,7 +111,21 @@
                     </div>
 
                 </div>
-
+                <script type="text/javascript">
+                if (document.getElementById("etat_compte").checked = true) {
+                    var x = document.getElementById("etat_compte").value = 1;
+                    return x;
+                }
+                if (document.getElementById("etat_compte").checked = false) {
+                    var x = document.getElementById("etat_compte").value = 0
+                    return x;
+                }
+                // if (document.getElementById("etat_compte_active").checked) {
+                //     document.getElementById("etat_compte_active").value = 1
+                // } else {
+                //     document.getElementById("etat_compte_active").value = 0
+                // }
+                </script>
                 <div id="btn_frs_ajout">
 
                     <div id="enrg_frs_ajout">

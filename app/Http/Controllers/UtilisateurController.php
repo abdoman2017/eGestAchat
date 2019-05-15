@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Utilisateur;
-use Illuminate\Http\Request;
 use DB;
+use Illuminate\Http\Request;
 
 class UtilisateurController extends Controller
 {
@@ -14,7 +14,7 @@ class UtilisateurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { }
+    {}
 
     /**
      * Show the form for creating a new resource.
@@ -39,15 +39,16 @@ class UtilisateurController extends Controller
     public function store(Request $request)
     {
         $utilisateur = new Utilisateur();
-        $utilisateur->code_Utl = $request->input('nom_frs');
-        $utilisateur->nom_Utl = $request->input('abv_frs');
-        $utilisateur->prenom_Utl = $request->input('adr_frs');
-        $utilisateur->etat_Utl = $request->input('cpt_frs');
-        $utilisateur->numero_tel = $request->input('tel_frs');
-        $utilisateur->numero_fax = $request->input('fax_frs');
-        $utilisateur->email = $request->input('mail_frs');
+        $utilisateur->code_Utl = $request->input('code_utilisateur');
+        $utilisateur->nom_Utl = $request->input('nom_utilisateur');
+        $utilisateur->prenom_Utl = $request->input('prenom_utilisateur');
+        $utilisateur->etat_Utl = $request->input('etat_compte');
+        $utilisateur->direction_code_dr = $request->get('directions');
+        $utilisateur->structure_code_str = $request->get('structures');
+        $utilisateur->privilege_code_prv = $request->get('privileges');
+        $utilisateur->profil_code_prf = $request->get('profils');
         $utilisateur->save();
-        return redirect()->route('fournisseurs.index');
+        return redirect()->route('utilisateurs.index');
     }
 
     /**

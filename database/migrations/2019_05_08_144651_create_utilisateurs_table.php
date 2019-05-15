@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateUtilisateursTable extends Migration
 {
@@ -17,7 +17,7 @@ class CreateUtilisateursTable extends Migration
             $table->string('code_Utl')->primary();
             $table->string('nom_Utl');
             $table->string('prenom_Utl');
-            $table->integer('etat_Utl');
+            $table->integer('etat_Utl')->nullable();
             $table->string('direction_code_dr');
             $table->string('structure_code_str');
             $table->string('privilege_code_prv');
