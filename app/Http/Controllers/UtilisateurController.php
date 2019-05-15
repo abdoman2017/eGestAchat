@@ -47,10 +47,10 @@ class UtilisateurController extends Controller
         $utilisateur->nom_Utl = $request->input('nom_utilisateur');
         $utilisateur->prenom_Utl = $request->input('prenom_utilisateur');
         $utilisateur->etat_Utl = $request->input('etat_compte');
-        $utilisateur->direction_code_dr = $request->get('directions');
-        $utilisateur->structure_code_str = $request->get('structures');
-        $utilisateur->privilege_code_prv = $request->get('privileges');
-        $utilisateur->profil_code_prf = $request->get('profils');
+        $utilisateur->direction_id = $request->get('directions');
+        $utilisateur->structure_id = $request->get('structures');
+        $utilisateur->privilege_id = $request->get('privileges');
+        $utilisateur->profil_id = $request->get('profils');
         $utilisateur->save();
         return redirect()->route('utilisateurs.index');
     }
@@ -95,9 +95,9 @@ class UtilisateurController extends Controller
      * @param  \App\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $code_Utl)
+    public function destroy(Request $request, $id)
     {
-        $utilisateur = Utilisateur::find($code_Utl);
+        $utilisateur = Utilisateur::find($id);
         $utilisateur->delete();
         return redirect()->route('utilisateurs.index');
     }

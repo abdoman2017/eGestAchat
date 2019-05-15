@@ -28,9 +28,6 @@ Route::delete('fournisseur/{id}', 'FournisseurController@destroy');
 Route::get('utilisateur', 'UtilisateurController@index')->name('utilisateurs.index');
 Route::get('utilisateur/create', 'UtilisateurController@create')->name('utilisateurs.create');
 Route::post('utilisateur', 'UtilisateurController@store');
-Route::get('utilisateur/{code_Utl}/edit', 'UtilisateurController@edit');
-Route::put('utilisateur/{code_Utl}', 'UtilisateurController@update');
-Route::delete('utilisateur/{code_Utl}', 'UtilisateurController@destroy');
-
-// route combobox
-Route::get('/dynamic_dependent', 'DynamicDependent@index');
+Route::get('utilisateur/{id}/edit', 'UtilisateurController@edit');
+Route::put('utilisateur/{id}', 'UtilisateurController@update');
+Route::delete('utilisateur/{id}', 'UtilisateurController@destroy');

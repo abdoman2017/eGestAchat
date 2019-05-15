@@ -1,20 +1,11 @@
 @extends('layouts.side_navbar')
 @section('ajouter_utilisateur')
-
-
-
-
-
 <div class="container-fluid">
     <header>
         <center>
             <h4>Nouveau Utilisateur</h4>
         </center>
     </header>
-
-
-
-
     <div id="form_utl_ajout">
         <div class="row">
             <form id="form_ajout_utl" class="col s12" action="{{ url('utilisateur') }}" method="post">
@@ -24,15 +15,12 @@
                     <input id="code_utilisateur" type="text" class="validate" name="code_utilisateur"
                         value="{{ old('code_utilisateur') }}">
                     <label for="code_utilisateur">Code Utilisateur *</label>
-
                     @if ($errors->get('code_utilisateur'))
                     @foreach($errors->get('code_utilisateur') as $message)
                     <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
                     @endforeach
                     @endif
                 </div>
-
-
                 <div class="input-field col s6">
                     <input id="nom_utilisateur" type="text" class="validate" name="nom_utilisateur"
                         value="{{ old('nom_utilisateur') }}">
@@ -43,8 +31,6 @@
                     @endforeach
                     @endif
                 </div>
-
-
                 <div class="input-field col s6">
                     <input id="prenom_utilisateur" type="text" class="validate" name="prenom_utilisateur"
                         value="{{ old('prenom_utilisateur') }}">
@@ -55,7 +41,6 @@
                     @endforeach
                     @endif
                 </div>
-
                 <div class="input-field col s6">
                     <select id="directions" name="directions">
                         <option value="" disabled selected>Choisissez une Direction</option>
@@ -63,7 +48,6 @@
                         <option value="{{ $direction->code_dr }}">{{ $direction->libelle_dr }}</option>
                         @endforeach
                     </select>
-
                 </div>
                 <div class="input-field col s6">
                     <select id="structures" name="structures">

@@ -45,17 +45,17 @@
                 <td>{{ $utilisateur->code_Utl }}</td>
                 <td>{{ $utilisateur->nom_Utl}}</td>
                 <td>{{ $utilisateur->prenom_Utl }}</td>
-                <td>{{ $utilisateur->direction_code_dr }}</td>
-                <td>{{ $utilisateur->structure_code_str }}</td>
-                <td>{{ $utilisateur->privilege_code_prv }}</td>
-                <td>{{ $utilisateur->profil_code_prf }}</td>
+                <td>{{ $utilisateur->libelle_dr }}</td>
+                <td>{{ $utilisateur->libelle_str }}</td>
+                <td>{{ $utilisateur->libelle_prv }}</td>
+                <td>{{ $utilisateur->libelle_prf }}</td>
                 <td>
 
-                    <form action="{{ url('utilisateur/'.$utilisateur->code_Utl) }}" method="post">
+                    <form action="{{ url('utilisateur/'.$utilisateur->id) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <a href="{{ url('utilisateur/'.$utilisateur->code_Utl.'/edit') }}"> <i
-                                class="fas fa-pen couleur_bleu" role="button"></i></a>&nbsp;&nbsp;
+                        <a href="{{ url('utilisateur/'.$utilisateur->id.'/edit') }}"> <i class="fas fa-pen couleur_bleu"
+                                role="button"></i></a>&nbsp;&nbsp;
                         <button type="submit" class="far fa-trash-alt couleur_rouge" role="link"
                             style="background: none; border: none;"></button>
                     </form>

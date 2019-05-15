@@ -14,7 +14,8 @@ class CreateStructuresTable extends Migration
     public function up()
     {
         Schema::create('structures', function (Blueprint $table) {
-            $table->string('code_str')->primary();
+            $table->increments('id');
+            $table->string('code_str');
             $table->string('libelle_str');
             $table->dateTime('created_at', DB::raw(0))->nullable();
             $table->dateTime('updated_at', DB::raw(0))->nullable();

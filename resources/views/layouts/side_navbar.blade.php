@@ -83,6 +83,12 @@
                         </ul>
                     </div>
                 </li>
+                <li id="dash_dashboard"><a class="waves-effect" href="{{route('fournisseurs.index')}}"><b>Gestion
+                            Fournisseurs</b></a></li>
+                <li>
+                    <a class="waves-effect" href="{{route('utilisateurs.index')}}"><b>Gestion Utilisateurs</b></a>
+
+                </li>
             </ul>
         </div>
     </ul>

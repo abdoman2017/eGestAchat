@@ -14,7 +14,8 @@ class CreateDirectionsTable extends Migration
     public function up()
     {
         Schema::create('directions', function (Blueprint $table) {
-            $table->string('code_dr')->primary();
+            $table->increments('id');
+            $table->string('code_dr');
             $table->string('libelle_dr');
             $table->dateTime('created_at', DB::raw(0))->nullable();
             $table->dateTime('updated_at', DB::raw(0))->nullable();
