@@ -45,26 +45,54 @@
                     <select id="directions" name="directions">
                         <option value="" disabled selected>Choisissez une Direction</option>
                         @foreach($liste_directions as $direction)
-                        <option value="{{ $direction->code_dr }}">{{ $direction->libelle_dr }}</option>
+                        @if (old('directions') == $direction->code_dr)
+                        <option value="{{ $direction->code_dr }}" selected>
+                            {{ $direction->libelle_dr }}</option>
+                        @else
+                        <option value="{{ $direction->code_dr }}">
+                            {{ $direction->libelle_dr }}</option>
+                        @endif
                         @endforeach
                     </select>
+                    @if ($errors->get('directions'))
+                    @foreach($errors->get('directions') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
                 <div class="input-field col s6">
                     <select id="structures" name="structures">
                         <option value="" disabled selected>Choisissez une Structure</option>
                         @foreach($liste_structures as $structure)
+                        @if (old('structures') == $structure->code_str)
+                        <option value="{{ $structure->code_str }}" selected>{{ $structure->libelle_str }}</option>
+                        @else
                         <option value="{{ $structure->code_str }}">{{ $structure->libelle_str }}</option>
+                        @endif
                         @endforeach
                     </select>
-
+                    @if ($errors->get('structures'))
+                    @foreach($errors->get('structures') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
                 <div class="input-field col s6">
                     <select name="profils">
                         <option value="" disabled selected>Choisissez un Profil</option>
                         @foreach($liste_profils as $profil)
+                        @if (old('profils') == $profil->code_prf)
+                        <option value="{{ $profil->code_prf }}" selected>{{ $profil->libelle_prf }}</option>
+                        @else
                         <option value="{{ $profil->code_prf }}">{{ $profil->libelle_prf }}</option>
+                        @endif
                         @endforeach
                     </select>
+                    @if ($errors->get('profils'))
+                    @foreach($errors->get('profils') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
 
                 </div>
                 <div id="switch_tous">
@@ -72,10 +100,18 @@
                         <select name="privileges">
                             <option value="" disabled selected>Choisissez un Privilège</option>
                             @foreach($liste_privileges as $privilege)
+                            @if (old('privileges') == $privilege->code_prv)
+                            <option value="{{ $privilege->code_prv }}" selected>{{ $privilege->libelle_prv }}</option>
+                            @else
                             <option value="{{ $privilege->code_prv }}">{{ $privilege->libelle_prv }}</option>
+                            @endif
                             @endforeach
                         </select>
-
+                        @if ($errors->get('privileges'))
+                        @foreach($errors->get('privileges') as $message)
+                        <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                        @endforeach
+                        @endif
                     </div>
                     <div id="switch_div">
                         <div id="switch_label">
@@ -109,10 +145,7 @@
                         <a href="{{route('utilisateurs.index')}}" class="waves-effect waves-light btn">Annuler</a>
 
                     </div>
-
                 </div>
-
-
             </form>
         </div>
 

@@ -31,6 +31,13 @@ class FournisseurRequest extends FormRequest
             'tel_frs' => 'required|min:4|max:30',
             'fax_frs' => 'max:25',
             'mail_frs' => 'max:35',
+            'nom_utilisateur' => 'required',
+            'prenom_utilisateur' => 'required',
+            'code_utilisateur' => 'required',
+            'directions' => 'required',
+            'structures' => 'required',
+            'profils' => 'required',
+            'privileges' => 'required',
         ];
     }
 }
