@@ -22,12 +22,13 @@ class Utilisateur extends Model
     }
     public function scopeTrouver($q, $id)
     {
-        $q->join('directions', 'directions.id', '=', 'utilisateurs.direction_id')
+        $q->leftJoin('directions', 'directions.id', '=', 'utilisateurs.direction_id')
             ->join('structures', 'structures.id', '=', 'utilisateurs.structure_id')
             ->join('privileges', 'privileges.id', '=', 'utilisateurs.privilege_id')
             ->join('profils', 'profils.id', '=', 'utilisateurs.profil_id')
+            ->join('etats', 'etats.id', '=', 'utilisateurs.etat_id')
             ->where('utilisateurs.id', '=', "$id")
-            ->select('directions.libelle_dr', 'privileges.libelle_prv', 'profils.libelle_prf', 'structures.libelle_str', 'utilisateurs.*');
-
+            ->select('utilisateurs.*', 'directions.libelle_dr', 'privileges.libelle_prv', 'profils.libelle_prf', 'structures.libelle_str', 'etats.libelle_etat')
+            ->get();
     }
 }

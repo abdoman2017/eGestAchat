@@ -11,7 +11,6 @@
             <form id="form_ajout_utl" class="col s12" action="{{ url('utilisateur/'.$utilisateur->id) }}" method="post">
                 <input type="hidden" name="_method" value="PUT">
                 @CSRF
-
                 <div class="input-field col s6 hauteurINPUTuser">
                     <input id="code_utilisateur" type="text" class="validate" name="code_utilisateur"
                         value="{{ $utilisateur->code_Utl }}">
@@ -45,10 +44,16 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select id="directions" name="directions">
                         <option value="" disabled selected>Choisissez une Direction</option>
-                        @if (old('structures') == $utilisateur->code_dr)
-                        <option value="{{ $utilisateur->code_dr }}" selected>{{ $utilisateur->libelle_dr }}</option>
+                        @if (old('directions') == $utilisateur->direction_id)
+                        <option value="{{ $utilisateur->direction_id}}" selected="selected">
+                            {{ $utilisateur->libelle_dr }}
+                        </option>
                         @else
-                        <option value="{{ $utilisateur->code_dr }}">{{ $utilisateur->libelle_dr }}</option>
+                        @foreach($liste_directions as $direction)
+
+                        <option value="{{ $direction->id }}">{{ $direction->libelle_dr }}</option>
+
+                        @endforeach
                         @endif
                     </select>
                     @if ($errors->get('directions'))
@@ -60,11 +65,11 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select id="structures" name="structures">
                         <option value="" disabled selected>Choisissez une Structure</option>
-                        @if (old('structures') == $utilisateur->code_prf)
-                        <option value="{{ $utilisateur->code_prf }}" selected>{{ $utilisateur->libelle_str }}
+                        @if (old('structures') == $utilisateur->structure_id)
+                        <option value="{{ $utilisateur->structure_id }}" selected>{{ $utilisateur->libelle_str }}
                         </option>
                         @else
-                        <option value="{{ $utilisateur->code_prf }}">{{ $utilisateur->libelle_str }}</option>
+                        <option value="{{ $utilisateur->structure_id }}">{{ $utilisateur->libelle_str }}</option>
                         @endif
                     </select>
                     @if ($errors->get('structures'))
@@ -76,10 +81,10 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select name="profils">
                         <option value="" disabled selected>Choisissez un Profil</option>
-                        @if (old('profils') == $utilisateur->code_prf)
-                        <option value="{{ $utilisateur->code_prf  }}" selected>{{ $utilisateur->libelle_prf }}</option>
+                        @if (old('profils') == $utilisateur->profil_id)
+                        <option value="{{ $utilisateur->profil_id  }}" selected>{{ $utilisateur->libelle_prf }}</option>
                         @else
-                        <option value="{{ $utilisateur->code_prf  }}">{{ $utilisateur->libelle_prf }}</option>
+                        <option value="{{ $utilisateur->profil_id  }}">{{ $utilisateur->libelle_prf }}</option>
                         @endif
                     </select>
                     @if ($errors->get('profils'))
@@ -89,41 +94,42 @@
                     @endif
 
                 </div>
-                <div id="switch_tous">
-                    <div id="option_privilege" class="input-field col s6 hauteurINPUTuser">
-                        <select name="privileges">
-                            <option value="" disabled selected>Choisissez un Privilège</option>
-                            @if (old('privileges') == $utilisateur->code_prv)
-                            <option value="{{ $utilisateur->code_prv }}" selected>{{ $utilisateur->libelle_prv }}
-                            </option>
-                            @else
-                            <option value="{{ $utilisateur->code_prv }}">{{ $utilisateur->libelle_prv }}</option>
-                            @endif
-                        </select>
-                        @if ($errors->get('privileges'))
-                        @foreach($errors->get('privileges') as $message)
-                        <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
-                        @endforeach
+
+                <div id="option_privilege" class="input-field col s6 hauteurINPUTuser">
+                    <select name="privileges">
+                        <option value="" disabled selected>Choisissez un Privilège</option>
+                        @if (old('privileges') == $utilisateur->privilege_id)
+                        <option value="{{ $utilisateur->privilege_id }}" selected>{{ $utilisateur->libelle_prv }}
+                        </option>
+                        @else
+                        <option value="{{ $utilisateur->privilege_id }}">{{ $utilisateur->libelle_prv }}</option>
                         @endif
-                    </div>
-                    <div id="switch_div">
-                        <div id="switch_label">
-                            <label>Etat Compte:</label>
-                        </div>
-                        <div id="switch_etat">
-                            <div class="switch">
-                                <label>
-                                    Désactivé
-                                    <input id="etat_compte" type="checkbox" name="etat_compte" checked value="1">
-
-                                    <span class="lever"></span>
-                                    Activé
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
+                    </select>
+                    @if ($errors->get('privileges'))
+                    @foreach($errors->get('privileges') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
                 </div>
+
+                <div id="option_etat" class="input-field col s6 hauteurINPUTuser">
+                    <select name="etats">
+                        <option value="" disabled selected>Choisissez un Etat Compte</option>
+                        @if (old('etats') == $utilisateur->etat_id)
+                        <option value="{{ $utilisateur->etat_id }}" selected>{{ $utilisateur->libelle_etat }}</option>
+                        @else
+                        <option value="{{ $utilisateur->etat_id }}">{{ $utilisateur->libelle_etat }}</option>
+                        @endif
+                    </select>
+                    @if ($errors->get('etats'))
+                    @foreach($errors->get('etats') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
+                </div>
+
+
+
 
                 <div id="btn_frs_ajout">
 

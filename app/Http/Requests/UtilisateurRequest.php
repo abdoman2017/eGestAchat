@@ -31,6 +31,7 @@ class UtilisateurRequest extends FormRequest
             'structures' => 'required',
             'profils' => 'required',
             'privileges' => 'required',
+            'etats' => 'required',
         ];
     }
 }

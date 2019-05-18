@@ -32,7 +32,8 @@ class UtilisateurController extends Controller
         $liste_structure = DB::table('structures')->get();
         $liste_profil = DB::table('profils')->get();
         $liste_privilege = DB::table('privileges')->get();
-        return view('Utilisateurs.Utls_Ajouter', ['liste_directions' => $liste_direction, 'liste_structures' => $liste_structure, 'liste_profils' => $liste_profil, 'liste_privileges' => $liste_privilege]);
+        $liste_etat = DB::table('etats')->get();
+        return view('Utilisateurs.Utls_Ajouter', ['liste_directions' => $liste_direction, 'liste_structures' => $liste_structure, 'liste_profils' => $liste_profil, 'liste_privileges' => $liste_privilege, 'liste_etats' => $liste_etat]);
     }
 
     /**
@@ -47,7 +48,7 @@ class UtilisateurController extends Controller
         $utilisateur->code_Utl = $request->input('code_utilisateur');
         $utilisateur->nom_Utl = $request->input('nom_utilisateur');
         $utilisateur->prenom_Utl = $request->input('prenom_utilisateur');
-        $utilisateur->etat_Utl = $request->input('etat_compte');
+        $utilisateur->etat_id = $request->get('etats');
         $utilisateur->direction_id = $request->get('directions');
         $utilisateur->structure_id = $request->get('structures');
         $utilisateur->privilege_id = $request->get('privileges');
@@ -76,7 +77,8 @@ class UtilisateurController extends Controller
     public function edit($id)
     {
         $utilisateur = Utilisateur::trouver($id)->first();
-        return view('Utilisateurs.Utls_Modifier', ['utilisateur' => $utilisateur]);
+        $liste_direction = DB::table('directions')->get();
+        return view('Utilisateurs.Utls_Modifier', ['utilisateur' => $utilisateur, 'liste_directions' => $liste_direction]);
     }
 
     /**
@@ -86,7 +88,7 @@ class UtilisateurController extends Controller
      * @param  \App\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Utilisateur $utilisateur)
+    public function update(UtilisateurRequest $request, $id)
     {
         //
     }

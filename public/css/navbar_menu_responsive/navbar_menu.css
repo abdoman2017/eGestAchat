@@ -9,17 +9,13 @@
   margin-left: 25%;
   overflow: auto;
   display: inline-block;
-  margin-top: 80px;
-  
+  margin-top: 80px; 
 }
-
-
 #btn_frs_ajout {
   display: inline-block;
   width: 100%;
   margin-top: 4%;
 }
-
 #enrg_frs_ajout {
   margin-top: 10px;
   width: 45%;
@@ -44,7 +40,6 @@ div#form_recherche div{
 #champ_recherche div{
   float: right;
   width: 300px;
-
 }
 #boutton_recherche{
   width: 100px;
@@ -61,37 +56,12 @@ div#form_recherche div{
   height: 50px;
 }
 
-
 #form_utl_ajout{
   width: 60%;
   margin-left: 25%;
   display: inline-block;
   margin-top: 50px;
   height: auto;
-}
-#switch_tous div{
-  vertical-align: top;
-  display: block;
-  
-}
-#switch_div div{
-  display: inline-block;
-  margin:0 10px;
- 
-}
-#switch_etat{
-height: 55px;
-}
-#switch_etat div{
-  line-height: 75px;
-}
-#switch_label{
-height: 55px;
-}
-#switch_label label{
-  color: #000;
-  line-height: 75px;
-  
 }
 
 /* side navbar */

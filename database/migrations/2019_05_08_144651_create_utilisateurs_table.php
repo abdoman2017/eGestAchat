@@ -18,12 +18,10 @@ class CreateUtilisateursTable extends Migration
             $table->string('code_Utl');
             $table->string('nom_Utl');
             $table->string('prenom_Utl');
-
             $table->integer('direction_id');
             $table->integer('structure_id');
             $table->integer('privilege_id');
             $table->integer('profil_id');
-            $table->integer('etat_id');
             $table->dateTime('deleted_at', DB::raw(0))->nullable();
             $table->dateTime('created_at', DB::raw(0))->nullable();
             $table->dateTime('updated_at', DB::raw(0))->nullable();
@@ -31,7 +29,6 @@ class CreateUtilisateursTable extends Migration
             $table->foreign('structure_id')->references('id')->on('structures');
             $table->foreign('privilege_id')->references('id')->on('privileges');
             $table->foreign('profil_id')->references('id')->on('profils');
-            $table->foreign('etat_id')->references('id')->on('etats');
         });
     }
 
