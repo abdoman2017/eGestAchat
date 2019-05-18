@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UtilisateurRequest;
 use App\Utilisateur;
 use DB;
-use App\Http\Requests\FournisseurRequest;
 use Illuminate\Http\Request;
 
 class UtilisateurController extends Controller
@@ -41,7 +41,7 @@ class UtilisateurController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FournisseurRequest $request)
+    public function store(UtilisateurRequest $request)
     {
         $utilisateur = new Utilisateur();
         $utilisateur->code_Utl = $request->input('code_utilisateur');

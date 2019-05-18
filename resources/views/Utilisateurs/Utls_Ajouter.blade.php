@@ -8,10 +8,10 @@
     </header>
     <div id="form_utl_ajout">
         <div class="row">
-            <form id="form_ajout_utl" class="col s12" action="{{ url('utilisateur') }}" method="post">
+            <form id="form_ajout_utl" class="col s12" action="{{ route('utilisateur.store') }}" method="post">
                 @CSRF
 
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUTuser">
                     <input id="code_utilisateur" type="text" class="validate" name="code_utilisateur"
                         value="{{ old('code_utilisateur') }}">
                     <label for="code_utilisateur">Code Utilisateur *</label>
@@ -21,7 +21,7 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUTuser">
                     <input id="nom_utilisateur" type="text" class="validate" name="nom_utilisateur"
                         value="{{ old('nom_utilisateur') }}">
                     <label for=" nom_utilisateur">Nom Utilisateur *</label>
@@ -31,7 +31,7 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUTuser">
                     <input id="prenom_utilisateur" type="text" class="validate" name="prenom_utilisateur"
                         value="{{ old('prenom_utilisateur') }}">
                     <label for=" prenom_utilisateur">Prénom Utilisateur *</label>
@@ -41,17 +41,14 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUTuser">
                     <select id="directions" name="directions">
                         <option value="" disabled selected>Choisissez une Direction</option>
                         @foreach($liste_directions as $direction)
-                        @if (old('directions') == $direction->code_dr)
-                        <option value="{{ $direction->code_dr }}" selected>
+                        <option value="{{ $direction->code_dr }}" @if(old('directions')==$direction->code_dr)
+                            {{ 'selected' }}
+                            @endif>
                             {{ $direction->libelle_dr }}</option>
-                        @else
-                        <option value="{{ $direction->code_dr }}">
-                            {{ $direction->libelle_dr }}</option>
-                        @endif
                         @endforeach
                     </select>
                     @if ($errors->get('directions'))
@@ -60,7 +57,7 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUTuser">
                     <select id="structures" name="structures">
                         <option value="" disabled selected>Choisissez une Structure</option>
                         @foreach($liste_structures as $structure)
@@ -77,7 +74,7 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s6 hauteurINPUTuser">
                     <select name="profils">
                         <option value="" disabled selected>Choisissez un Profil</option>
                         @foreach($liste_profils as $profil)
@@ -96,7 +93,7 @@
 
                 </div>
                 <div id="switch_tous">
-                    <div id="option_privilege" class="input-field col s6">
+                    <div id="option_privilege" class="input-field col s6 hauteurINPUTuser">
                         <select name="privileges">
                             <option value="" disabled selected>Choisissez un Privilège</option>
                             @foreach($liste_privileges as $privilege)

@@ -27,7 +27,7 @@ Route::delete('fournisseur/{id}', 'FournisseurController@destroy');
 
 Route::get('utilisateur', 'UtilisateurController@index')->name('utilisateurs.index');
 Route::get('utilisateur/create', 'UtilisateurController@create')->name('utilisateurs.create');
-Route::post('utilisateur', 'UtilisateurController@store');
+Route::post('utilisateur', 'UtilisateurController@store')->name('utilisateur.store');
 Route::get('utilisateur/{id}/edit', 'UtilisateurController@edit');
 Route::put('utilisateur/{id}', 'UtilisateurController@update');
 Route::delete('utilisateur/{id}', 'UtilisateurController@destroy');
