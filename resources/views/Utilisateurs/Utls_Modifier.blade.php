@@ -1,18 +1,20 @@
 @extends('layouts.side_navbar')
-@section('ajouter_utilisateur')
+@section('modifier_utilisateur')
 <div class="container-fluid">
     <header>
         <center>
-            <h4>Nouveau Utilisateur</h4>
+            <h4>Modifier Utilisateur</h4>
         </center>
     </header>
     <div id="form_utl_ajout">
         <div class="row">
-            <form id="form_ajout_utl" class="col s12" action="{{ route('utilisateur.store') }}" method="post">
+            <form id="form_ajout_utl" class="col s12" action="{{ url('utilisateur/'.$utilisateur->id) }}" method="post">
+                <input type="hidden" name="_method" value="PUT">
                 @CSRF
+
                 <div class="input-field col s6 hauteurINPUTuser">
                     <input id="code_utilisateur" type="text" class="validate" name="code_utilisateur"
-                        value="{{ old('code_utilisateur') }}">
+                        value="{{ $utilisateur->code_Utl }}">
                     <label for="code_utilisateur">Code Utilisateur *</label>
                     @if ($errors->get('code_utilisateur'))
                     @foreach($errors->get('code_utilisateur') as $message)
@@ -22,7 +24,7 @@
                 </div>
                 <div class="input-field col s6 hauteurINPUTuser">
                     <input id="nom_utilisateur" type="text" class="validate" name="nom_utilisateur"
-                        value="{{ old('nom_utilisateur') }}">
+                        value="{{ $utilisateur->nom_Utl }}">
                     <label for=" nom_utilisateur">Nom Utilisateur *</label>
                     @if ($errors->get('nom_utilisateur'))
                     @foreach($errors->get('nom_utilisateur') as $message)
@@ -32,7 +34,7 @@
                 </div>
                 <div class="input-field col s6 hauteurINPUTuser">
                     <input id="prenom_utilisateur" type="text" class="validate" name="prenom_utilisateur"
-                        value="{{ old('prenom_utilisateur') }}">
+                        value="{{ $utilisateur->prenom_Utl }}">
                     <label for=" prenom_utilisateur">Prénom Utilisateur *</label>
                     @if ($errors->get('prenom_utilisateur'))
                     @foreach($errors->get('prenom_utilisateur') as $message)
@@ -43,12 +45,11 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select id="directions" name="directions">
                         <option value="" disabled selected>Choisissez une Direction</option>
-                        @foreach($liste_directions as $direction)
-                        <option value="{{ $direction->code_dr }}" @if(old('directions')==$direction->code_dr)
-                            {{ 'selected' }}
-                            @endif>
-                            {{ $direction->libelle_dr }}</option>
-                        @endforeach
+                        @if (old('structures') == $utilisateur->code_dr)
+                        <option value="{{ $utilisateur->code_dr }}" selected>{{ $utilisateur->libelle_dr }}</option>
+                        @else
+                        <option value="{{ $utilisateur->code_dr }}">{{ $utilisateur->libelle_dr }}</option>
+                        @endif
                     </select>
                     @if ($errors->get('directions'))
                     @foreach($errors->get('directions') as $message)
@@ -59,13 +60,12 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select id="structures" name="structures">
                         <option value="" disabled selected>Choisissez une Structure</option>
-                        @foreach($liste_structures as $structure)
-                        @if (old('structures') == $structure->code_str)
-                        <option value="{{ $structure->code_str }}" selected>{{ $structure->libelle_str }}</option>
+                        @if (old('structures') == $utilisateur->code_prf)
+                        <option value="{{ $utilisateur->code_prf }}" selected>{{ $utilisateur->libelle_str }}
+                        </option>
                         @else
-                        <option value="{{ $structure->code_str }}">{{ $structure->libelle_str }}</option>
+                        <option value="{{ $utilisateur->code_prf }}">{{ $utilisateur->libelle_str }}</option>
                         @endif
-                        @endforeach
                     </select>
                     @if ($errors->get('structures'))
                     @foreach($errors->get('structures') as $message)
@@ -76,13 +76,11 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select name="profils">
                         <option value="" disabled selected>Choisissez un Profil</option>
-                        @foreach($liste_profils as $profil)
-                        @if (old('profils') == $profil->code_prf)
-                        <option value="{{ $profil->code_prf }}" selected>{{ $profil->libelle_prf }}</option>
+                        @if (old('profils') == $utilisateur->code_prf)
+                        <option value="{{ $utilisateur->code_prf  }}" selected>{{ $utilisateur->libelle_prf }}</option>
                         @else
-                        <option value="{{ $profil->code_prf }}">{{ $profil->libelle_prf }}</option>
+                        <option value="{{ $utilisateur->code_prf  }}">{{ $utilisateur->libelle_prf }}</option>
                         @endif
-                        @endforeach
                     </select>
                     @if ($errors->get('profils'))
                     @foreach($errors->get('profils') as $message)
@@ -95,13 +93,12 @@
                     <div id="option_privilege" class="input-field col s6 hauteurINPUTuser">
                         <select name="privileges">
                             <option value="" disabled selected>Choisissez un Privilège</option>
-                            @foreach($liste_privileges as $privilege)
-                            @if (old('privileges') == $privilege->code_prv)
-                            <option value="{{ $privilege->code_prv }}" selected>{{ $privilege->libelle_prv }}</option>
+                            @if (old('privileges') == $utilisateur->code_prv)
+                            <option value="{{ $utilisateur->code_prv }}" selected>{{ $utilisateur->libelle_prv }}
+                            </option>
                             @else
-                            <option value="{{ $privilege->code_prv }}">{{ $privilege->libelle_prv }}</option>
+                            <option value="{{ $utilisateur->code_prv }}">{{ $utilisateur->libelle_prv }}</option>
                             @endif
-                            @endforeach
                         </select>
                         @if ($errors->get('privileges'))
                         @foreach($errors->get('privileges') as $message)

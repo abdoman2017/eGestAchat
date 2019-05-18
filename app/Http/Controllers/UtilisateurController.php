@@ -73,9 +73,10 @@ class UtilisateurController extends Controller
      * @param  \App\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Utilisateur $utilisateur)
+    public function edit($id)
     {
-        //
+        $utilisateur = Utilisateur::trouver($id)->first();
+        return view('Utilisateurs.Utls_Modifier', ['utilisateur' => $utilisateur]);
     }
 
     /**
