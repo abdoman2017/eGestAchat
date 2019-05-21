@@ -78,7 +78,11 @@ class UtilisateurController extends Controller
     {
         $utilisateur = Utilisateur::trouver($id)->first();
         $liste_direction = DB::table('directions')->get();
-        return view('Utilisateurs.Utls_Modifier', ['utilisateur' => $utilisateur, 'liste_directions' => $liste_direction]);
+        $liste_structure = DB::table('structures')->get();
+        $liste_profil = DB::table('profils')->get();
+        $liste_privilege = DB::table('privileges')->get();
+        $liste_etat = DB::table('etats')->get();
+        return view('Utilisateurs.Utls_Modifier', ['utilisateur' => $utilisateur, 'liste_directions' => $liste_direction, 'liste_structures' => $liste_structure, 'liste_profils' => $liste_profil, 'liste_privileges' => $liste_privilege, 'liste_etats' => $liste_etat]);
     }
 
     /**

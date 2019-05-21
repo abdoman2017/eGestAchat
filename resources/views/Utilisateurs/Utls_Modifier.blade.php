@@ -44,17 +44,17 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select id="directions" name="directions">
                         <option value="" disabled selected>Choisissez une Direction</option>
-                        @if (old('directions') == $utilisateur->direction_id)
-                        <option value="{{ $utilisateur->direction_id}}" selected="selected">
-                            {{ $utilisateur->libelle_dr }}
+                        @foreach($liste_directions as $direction)
+                        @if (old('directions') == $direction->id)
+                        <option value="{{ $direction->id}}" selected="selected">
+                            {{ $direction->libelle_dr }}
                         </option>
                         @else
-                        @foreach($liste_directions as $direction)
-
-                        <option value="{{ $direction->id }}">{{ $direction->libelle_dr }}</option>
-
-                        @endforeach
+                        <option value="{{ $direction->id }}" @if($utilisateur->direction_id==$direction->id)
+                            selected="selected"
+                            @endif>{{ $direction->libelle_dr }}</option>
                         @endif
+                        @endforeach
                     </select>
                     @if ($errors->get('directions'))
                     @foreach($errors->get('directions') as $message)
@@ -65,12 +65,17 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select id="structures" name="structures">
                         <option value="" disabled selected>Choisissez une Structure</option>
-                        @if (old('structures') == $utilisateur->structure_id)
-                        <option value="{{ $utilisateur->structure_id }}" selected>{{ $utilisateur->libelle_str }}
+                        @foreach($liste_structures as $structure)
+                        @if (old('structures') == $structure->id)
+                        <option value="{{ $structure->id }}" selected="selected">{{ $structure->libelle_str }}
                         </option>
                         @else
-                        <option value="{{ $utilisateur->structure_id }}">{{ $utilisateur->libelle_str }}</option>
+                        <option value="{{ $structure->id }}" @if($utilisateur->structure_id==$structure->id)
+                            selected="selected"
+                            @endif>{{ $structure->libelle_str }}</option>
+
                         @endif
+                        @endforeach
                     </select>
                     @if ($errors->get('structures'))
                     @foreach($errors->get('structures') as $message)
@@ -81,11 +86,15 @@
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select name="profils">
                         <option value="" disabled selected>Choisissez un Profil</option>
-                        @if (old('profils') == $utilisateur->profil_id)
-                        <option value="{{ $utilisateur->profil_id  }}" selected>{{ $utilisateur->libelle_prf }}</option>
+                        @foreach($liste_profils as $profil)
+                        @if (old('profils') == $profil->id)
+                        <option value="{{ $profil->id  }}" selected="selected">{{ $profil->libelle_prf }}</option>
                         @else
-                        <option value="{{ $utilisateur->profil_id  }}">{{ $utilisateur->libelle_prf }}</option>
+                        <option value="{{ $profil->id  }}" @if($utilisateur->profil_id==$profil->id)
+                            selected="selected"
+                            @endif>{{ $profil->libelle_prf }}</option>
                         @endif
+                        @endforeach
                     </select>
                     @if ($errors->get('profils'))
                     @foreach($errors->get('profils') as $message)
@@ -98,12 +107,16 @@
                 <div id="option_privilege" class="input-field col s6 hauteurINPUTuser">
                     <select name="privileges">
                         <option value="" disabled selected>Choisissez un Privilège</option>
-                        @if (old('privileges') == $utilisateur->privilege_id)
-                        <option value="{{ $utilisateur->privilege_id }}" selected>{{ $utilisateur->libelle_prv }}
+                        @foreach($liste_privileges as $privilege)
+                        @if (old('privileges') == $privilege->id)
+                        <option value="{{ $privilege->id }}" selected="selected">{{ $privilege->libelle_prv }}
                         </option>
                         @else
-                        <option value="{{ $utilisateur->privilege_id }}">{{ $utilisateur->libelle_prv }}</option>
+                        <option value="{{ $privilege->id }}" @if($utilisateur->privilege_id==$privilege->id)
+                            selected="selected"
+                            @endif>{{ $privilege->libelle_prv }}</option>
                         @endif
+                        @endforeach
                     </select>
                     @if ($errors->get('privileges'))
                     @foreach($errors->get('privileges') as $message)
@@ -115,11 +128,15 @@
                 <div id="option_etat" class="input-field col s6 hauteurINPUTuser">
                     <select name="etats">
                         <option value="" disabled selected>Choisissez un Etat Compte</option>
-                        @if (old('etats') == $utilisateur->etat_id)
-                        <option value="{{ $utilisateur->etat_id }}" selected>{{ $utilisateur->libelle_etat }}</option>
+                        @foreach($liste_etats as $etat)
+                        @if (old('etats') == $etat->id)
+                        <option value="{{ $etat->id}}" selected="selected">{{ $etat->libelle_etat }}</option>
                         @else
-                        <option value="{{ $utilisateur->etat_id }}">{{ $utilisateur->libelle_etat }}</option>
+                        <option value="{{ $etat->id }}" @if($utilisateur->etat_id==$etat->id)
+                            selected="selected"
+                            @endif>{{ $etat->libelle_etat }}</option>
                         @endif
+                        @endforeach
                     </select>
                     @if ($errors->get('etats'))
                     @foreach($errors->get('etats') as $message)
