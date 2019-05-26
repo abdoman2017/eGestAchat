@@ -41,8 +41,26 @@
                     @endif
                 </div>
                 <div class="input-field col s6 hauteurINPUTuser">
+                    <input id="password" type="password" class="validate" name="password">
+                    <label for="password">Mot de Passe *</label>
+                    @if ($errors->get('password'))
+                    @foreach($errors->get('password') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
+                </div>
+                <div class="input-field col s6 hauteurINPUTuser">
+                    <input id="password_confirmation" type="password" class="validate" name="password_confirmation">
+                    <label for="password_confirmation">Confirmer Mot de Passe *</label>
+                    @if ($errors->get('password_confirmation'))
+                    @foreach($errors->get('password_confirmation') as $message)
+                    <span style="color: red;" class="helper-text" data-error="wrong">{{ $message }}</span>
+                    @endforeach
+                    @endif
+                </div>
+                <div class="input-field col s6 hauteurINPUTuser">
                     <select id="directions" name="directions">
-                        <option value="" disabled selected>Choisissez une Direction</option>
+                        <option value="" disabled selected>Choisissez une Direction *</option>
                         @foreach($liste_directions as $direction)
                         @if (old('directions') == $direction->id)
                         <option value="{{ $direction->id }}" selected>{{ $direction->libelle_dr }}</option>
@@ -59,7 +77,7 @@
                 </div>
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select id="structures" name="structures">
-                        <option value="" disabled selected>Choisissez une Structure</option>
+                        <option value="" disabled selected>Choisissez une Structure *</option>
                         @foreach($liste_structures as $structure)
                         @if (old('structures') == $structure->id)
                         <option value="{{ $structure->id }}" selected>{{ $structure->libelle_str }}</option>
@@ -76,7 +94,7 @@
                 </div>
                 <div class="input-field col s6 hauteurINPUTuser">
                     <select name="profils">
-                        <option value="" disabled selected>Choisissez un Profil</option>
+                        <option value="" disabled selected>Choisissez un Profil *</option>
                         @foreach($liste_profils as $profil)
                         @if (old('profils') == $profil->id)
                         <option value="{{ $profil->id }}" selected>{{ $profil->libelle_prf }}</option>
@@ -95,7 +113,7 @@
 
                 <div id="option_privilege" class="input-field col s6 hauteurINPUTuser">
                     <select name="privileges">
-                        <option value="" disabled selected>Choisissez un Privilège</option>
+                        <option value="" disabled selected>Choisissez un Privilège *</option>
                         @foreach($liste_privileges as $privilege)
                         @if (old('privileges') == $privilege->id)
                         <option value="{{ $privilege->id }}" selected>{{ $privilege->libelle_prv }}</option>
@@ -113,7 +131,7 @@
 
                 <div id="option_etat" class="input-field col s6 hauteurINPUTuser">
                     <select name="etats">
-                        <option value="" disabled selected>Choisissez un Etat Compte</option>
+                        <option value="" disabled selected>Choisissez un Etat Compte *</option>
                         @foreach($liste_etats as $etat)
                         @if (old('etats') == $etat->id)
                         <option value="{{ $etat->id }}" selected>{{ $etat->libelle_etat }}</option>

@@ -6,6 +6,7 @@ use App\Http\Requests\UtilisateurRequest;
 use App\Utilisateur;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UtilisateurController extends Controller
 {
@@ -44,10 +45,14 @@ class UtilisateurController extends Controller
      */
     public function store(UtilisateurRequest $request)
     {
+        $request->validate([
+            'password' => 'required|min:5|confirmed'
+        ]);
         $utilisateur = new Utilisateur();
         $utilisateur->code_Utl = $request->input('code_utilisateur');
         $utilisateur->nom_Utl = $request->input('nom_utilisateur');
         $utilisateur->prenom_Utl = $request->input('prenom_utilisateur');
+        $utilisateur->mot_passe = Hash::make($request->input('password'));
         $utilisateur->etat_id = $request->get('etats');
         $utilisateur->direction_id = $request->get('directions');
         $utilisateur->structure_id = $request->get('structures');
@@ -94,7 +99,17 @@ class UtilisateurController extends Controller
      */
     public function update(UtilisateurRequest $request, $id)
     {
-        //
+        $utilisateur = Utilisateur::find($id);
+        $utilisateur->code_Utl = $request->input('code_utilisateur');
+        $utilisateur->nom_Utl = $request->input('nom_utilisateur');
+        $utilisateur->prenom_Utl = $request->input('prenom_utilisateur');
+        $utilisateur->etat_id = $request->get('etats');
+        $utilisateur->direction_id = $request->get('directions');
+        $utilisateur->structure_id = $request->get('structures');
+        $utilisateur->privilege_id = $request->get('privileges');
+        $utilisateur->profil_id = $request->get('profils');
+        $utilisateur->save();
+        return redirect()->route('utilisateurs.index');
     }
 
     /**
