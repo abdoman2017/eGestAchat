@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Utilisateur extends Model
 {
     use SoftDeletes;
-    protected $dates = ['deleted_at'];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+    public function getDateFormat()
+    {
+        return 'Y-m-d H:i:s';
+    }
     public function scopeRechercher($q, $recherche)
     {
         $q->join('directions', 'directions.id', '=', 'utilisateurs.direction_id')

@@ -41,8 +41,8 @@
         <tbody>
             @foreach($fournisseurs as $fournisseur)
             <tr>
-                <td>{{ $fournisseur->nom }}</td>
-                <td>{{ $fournisseur->adresse }}</td>
+                <td>{!! $fournisseur->getNameFormatedAttribute() !!}</td>
+                <td>{!! $fournisseur->getAddressFormatedAttribute() !!}</td>
                 <td>{{ $fournisseur->numero_compte }}</td>
                 <td>{{ $fournisseur->numero_tel }}</td>
                 <td>{{ $fournisseur->numero_fax }}</td>
