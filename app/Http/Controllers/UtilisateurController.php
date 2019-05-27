@@ -46,7 +46,7 @@ class UtilisateurController extends Controller
     public function store(UtilisateurRequest $request)
     {
         $request->validate([
-            'password' => 'required|min:5|confirmed'
+            'password' => 'required|min:5|confirmed',
         ]);
         $utilisateur = new Utilisateur();
         $utilisateur->code_Utl = $request->input('code_utilisateur');
@@ -99,7 +99,9 @@ class UtilisateurController extends Controller
      */
     public function update(UtilisateurRequest $request, $id)
     {
+
         $utilisateur = Utilisateur::find($id);
+
         $utilisateur->code_Utl = $request->input('code_utilisateur');
         $utilisateur->nom_Utl = $request->input('nom_utilisateur');
         $utilisateur->prenom_Utl = $request->input('prenom_utilisateur');
