@@ -13,6 +13,33 @@ class Utilisateur extends Model
     {
         return 'Y-m-d H:i:s';
     }
+    public function getCodeFormatedAttribute()
+    {
+
+        if (request()->has('recherche')) {
+            return str_replace(request('recherche'), '<mark>' . request('recherche') . '</mark>', $this->attributes['code_Utl']);
+        } else {
+            return $this->attributes['code_Utl'];
+        }
+    }
+    public function getNomFormatedAttribute()
+    {
+
+        if (request()->has('recherche')) {
+            return str_replace(request('recherche'), '<mark>' . request('recherche') . '</mark>', $this->attributes['nom_Utl']);
+        } else {
+            return $this->attributes['nom_Utl'];
+        }
+    }
+    public function getPrenomFormatedAttribute()
+    {
+
+        if (request()->has('recherche')) {
+            return str_replace(request('recherche'), '<mark>' . request('recherche') . '</mark>', $this->attributes['prenom_Utl']);
+        } else {
+            return $this->attributes['prenom_Utl'];
+        }
+    }
     public function scopeRechercher($q, $recherche)
     {
         $q->join('directions', 'directions.id', '=', 'utilisateurs.direction_id')

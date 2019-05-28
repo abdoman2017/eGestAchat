@@ -63,6 +63,13 @@ div#form_recherche div{
   margin-top: 50px;
   height: auto;
 }
+#form_utl_reinitialiser{
+  width: 60%;
+  margin-left: 25%;
+  display: inline-block;
+  margin-top: 50px;
+  height: auto;
+}
 
 /* side navbar */
 #image_sidebar {

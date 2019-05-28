@@ -145,9 +145,6 @@
                     @endif
                 </div>
 
-
-
-
                 <div id="btn_frs_ajout">
 
                     <div id="enrg_frs_ajout">

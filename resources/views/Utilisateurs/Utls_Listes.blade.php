@@ -42,9 +42,9 @@
         <tbody>
             @foreach($utilisateurs as $utilisateur)
             <tr>
-                <td>{{ $utilisateur->code_Utl }}</td>
-                <td>{{ $utilisateur->nom_Utl}}</td>
-                <td>{{ $utilisateur->prenom_Utl }}</td>
+                <td>{!! $utilisateur->getCodeFormatedAttribute() !!}</td>
+                <td>{!! $utilisateur->getNomFormatedAttribute() !!}</td>
+                <td>{!! $utilisateur->getPrenomFormatedAttribute() !!}</td>
                 <td>{{ $utilisateur->libelle_dr }}</td>
                 <td>{{ $utilisateur->libelle_str }}</td>
                 <td>{{ $utilisateur->libelle_prv }}</td>
@@ -58,7 +58,7 @@
                                 role="button"></i></a>&nbsp;&nbsp;
                         <button type="submit" class="far fa-trash-alt couleur_rouge" role="link"
                             style="background: none; border: none;"></button>
-                        <a href="#"><i class="fas fa-key"></i></a>
+                        <a href="{{ url('utilisateur_r/'.$utilisateur->id.'/reset') }}"><i class="fas fa-key"></i></a>
                     </form>
                 </td>
 

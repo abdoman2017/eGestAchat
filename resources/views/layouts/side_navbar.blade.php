@@ -11,12 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.min.css') }}">
     <script src="{{ asset('js/materialize_0.100/materialize.min.js') }}"></script>
     <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
-
 </head>
 
 <body>
-
-
 
     <ul id="slide-out" class="side-nav fixed z-depth-2">
         <div id="image_sidebar">
@@ -89,6 +86,10 @@
                     <a class="waves-effect" href="{{route('utilisateurs.index')}}"><b>Gestion Utilisateurs</b></a>
 
                 </li>
+                <li>
+                    <a class="waves-effect" href="{{ url('login') }}"><b>Changer Mot de Passe</b></a>
+
+                </li>
             </ul>
         </div>
     </ul>
@@ -108,6 +109,7 @@
     @yield('Liste_utilisateurs')
     @yield('ajouter_utilisateur')
     @yield('modifier_utilisateur')
+    @yield('reinitialiser_mp_utilisateur')
 
 </body>
 

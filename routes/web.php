@@ -31,3 +31,8 @@ Route::post('utilisateur', 'UtilisateurController@store')->name('utilisateur.sto
 Route::get('utilisateur/{id}/edit', 'UtilisateurController@edit');
 Route::put('utilisateur/{id}', 'UtilisateurController@update');
 Route::delete('utilisateur/{id}', 'UtilisateurController@destroy');
+Route::get('utilisateur_r/{id}/reset', 'UtilisateurController@reset');
+Route::put('utilisateur_r/{id}', 'UtilisateurController@reset_save');
+Route::get('login', function () {
+    return view('login.login');
+});

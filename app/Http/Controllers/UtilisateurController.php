@@ -127,4 +127,19 @@ class UtilisateurController extends Controller
         $utilisateur->delete();
         return redirect()->route('utilisateurs.index');
     }
+    public function reset($id)
+    {
+        $utilisateur = Utilisateur::trouver($id)->first();
+        return view('Utilisateurs.Utls_Reinitialiser_MP', ['utilisateur' => $utilisateur]);
+    }
+    public function reset_save(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required|min:5|confirmed',
+        ]);
+        $utilisateur = Utilisateur::find($id);
+        $utilisateur->mot_passe = Hash::make($request->input('password'));
+        $utilisateur->save();
+        return redirect()->route('utilisateurs.index');
+    }
 }
