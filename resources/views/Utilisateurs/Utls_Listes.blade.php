@@ -58,6 +58,7 @@
                                 role="button"></i></a>&nbsp;&nbsp;
                         <button type="submit" class="far fa-trash-alt couleur_rouge" role="link"
                             style="background: none; border: none;"></button>
+                        <a href="#"><i class="fas fa-key"></i></a>
                     </form>
                 </td>
 
