@@ -12,7 +12,7 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.login');
 });
 
 Auth::routes();
@@ -33,6 +33,3 @@ Route::put('utilisateur/{id}', 'UtilisateurController@update');
 Route::delete('utilisateur/{id}', 'UtilisateurController@destroy');
 Route::get('utilisateur_r/{id}/reset', 'UtilisateurController@reset');
 Route::put('utilisateur_r/{id}', 'UtilisateurController@reset_save');
-Route::get('login', function () {
-    return view('login.login');
-});
