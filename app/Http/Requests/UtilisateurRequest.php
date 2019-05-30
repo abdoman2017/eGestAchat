@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class UtilisateurRequest extends FormRequest
 {
     /**
@@ -24,7 +25,7 @@ class UtilisateurRequest extends FormRequest
     public function rules()
     {
         return [
-            'code_utilisateur' => 'required|min:2|max:20',
+            'code_utilisateur' => 'required|min:2|max:20|unique:utilisateurs,code_Utl,' . $this->id . '',
             'nom_utilisateur' => 'required|min:3|max:25',
             'prenom_utilisateur' => 'required|min:3|max:25',
             'directions' => 'required',
