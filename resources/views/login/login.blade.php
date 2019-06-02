@@ -25,19 +25,37 @@
                             </center>
                         </div>
                         <div class="card-content">
-                            <form action="{{ route('utilisateur.store') }}" method="post">
-
+                            <form action="{{ url('/login_v') }}" method="post">
+                                @csrf
                                 <div class="input-field">
                                     <i class="fas fa-user-circle prefix"></i>
-                                    <input id="username" type="text" class="validate">
+                                    @if(!empty($codeuser))
+                                    <input id="username" type="text" class="validate" name="username"
+                                        value="{{ $codeuser }}">
+                                    @else
+                                    <input id="username" type="text" class="validate" name="username"
+                                        value="{{ old('username') }}">
+                                    @endif
                                     <label for="username">Nom Utilisateur</label>
+                                    @if ($errors->get('username'))
+                                    @foreach($errors->get('username') as $message)
+                                    <span style="color: red;" class="helper-text"
+                                        data-error="wrong">{{ $message }}</span>
+                                    @endforeach
+                                    @endif
                                 </div><br>
 
 
                                 <div class="input-field">
                                     <i class="fas fa-unlock-alt prefix"></i>
-                                    <input type="password" id="password" class="validate">
+                                    <input type="password" id="password" class="validate" name="password">
                                     <label for="password">Mot de Passe</label>
+                                    @if ($errors->get('password'))
+                                    @foreach($errors->get('password') as $message)
+                                    <span style="color: red;" class="helper-text"
+                                        data-error="wrong">{{ $message }}</span>
+                                    @endforeach
+                                    @endif
                                 </div><br>
 
 

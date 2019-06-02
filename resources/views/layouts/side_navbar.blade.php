@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/fontawesome/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/navbar_menu_responsive/fontawesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
     <script src="{{ asset('js/materialize_0.100/materialize.min.js') }}"></script>
     <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
 </head>
@@ -88,20 +89,28 @@
                 </li>
                 <li>
                     <a class="waves-effect" href="{{ url('login') }}"><b>Changer Mot de Passe</b></a>
-
                 </li>
+                <!-- <li>
+                    <a class="btn" onclick="showToast2('Le client a été ajouté avec succès!', 3000)">Rounded Alert!</a>
+                </li> -->
             </ul>
         </div>
     </ul>
 
 
     <script src="{{ asset('js/Mon_JS.js') }}"></script>
+    <script src="{{ asset('js/toastr.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         $('.button-collapse').sideNav();
         $('.collapsible').collapsible();
         $('select').material_select();
     });
+    </script>
+    <script>
+    @if(Session::has('success'))
+    toastr.success("{{ Session::get('success') }}")
+    @endif
     </script>
     @yield('liste_fournisseur')
     @yield('ajouter_fournisseur')

@@ -11,9 +11,8 @@
 |
  */
 
-Route::get('/', function () {
-    return view('login.login');
-});
+Route::get('/', 'UtilisateurController@identification')->name('login.identification');
+Route::get('accueil/', 'UtilisateurController@accueil')->name('accueil');
 
 Auth::routes();
 
@@ -33,3 +32,4 @@ Route::put('utilisateur/{id}', 'UtilisateurController@update');
 Route::delete('utilisateur/{id}', 'UtilisateurController@destroy');
 Route::get('utilisateur_r/{id}/reset', 'UtilisateurController@reset');
 Route::put('utilisateur_r/{id}', 'UtilisateurController@reset_save');
+Route::post('/login_v', 'UtilisateurController@login');

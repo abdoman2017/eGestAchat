@@ -6,6 +6,7 @@ use App\Fournisseur;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FournisseurRequest;
 use Illuminate\Http\Request;
+use Session;
 
 class FournisseurController extends Controller
 {
@@ -32,6 +33,7 @@ class FournisseurController extends Controller
         $fournisseur->numero_fax = $request->input('fax_frs');
         $fournisseur->email = $request->input('mail_frs');
         $fournisseur->save();
+        Session::flash('success', 'le fournisseur a été ajouté avec succès!');
         return redirect()->route('fournisseurs.index');
     }
 
@@ -51,12 +53,14 @@ class FournisseurController extends Controller
         $fournisseur->numero_fax = $request->input('fax_frs');
         $fournisseur->email = $request->input('mail_frs');
         $fournisseur->save();
+        Session::flash('success', 'le fournisseur a été modifié avec succès!');
         return redirect()->route('fournisseurs.index');
     }
     public function destroy(Request $request, $id)
     {
         $fournisseur = Fournisseur::find($id);
         $fournisseur->delete();
+        Session::flash('success', 'le fournisseur a été supprimé avec succès!');
         return redirect()->route('fournisseurs.index');
     }
 }

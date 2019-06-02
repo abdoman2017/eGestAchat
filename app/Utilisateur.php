@@ -62,4 +62,11 @@ class Utilisateur extends Model
             ->select('utilisateurs.*', 'directions.libelle_dr', 'privileges.libelle_prv', 'profils.libelle_prf', 'structures.libelle_str', 'etats.libelle_etat')
             ->get();
     }
+    public function scopeVerifie($q, $codeuser)
+    {
+        $q->where('utilisateurs.code_Utl', '=', "$codeuser")
+            ->select('utilisateurs.*')
+            ->get();
+
+    }
 }

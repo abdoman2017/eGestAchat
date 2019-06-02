@@ -7,7 +7,8 @@ use App\Utilisateur;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
+use Illuminate\Support\MessageBag;
+use Session;
 
 class UtilisateurController extends Controller
 {
@@ -60,7 +61,9 @@ class UtilisateurController extends Controller
         $utilisateur->privilege_id = $request->get('privileges');
         $utilisateur->profil_id = $request->get('profils');
         $utilisateur->save();
+        Session::flash('success', 'le compte a été crée avec succès!');
         return redirect()->route('utilisateurs.index');
+
     }
 
     /**
@@ -112,6 +115,7 @@ class UtilisateurController extends Controller
         $utilisateur->privilege_id = $request->get('privileges');
         $utilisateur->profil_id = $request->get('profils');
         $utilisateur->save();
+        Session::flash('success', 'le compte a été modifié avec succès!');
         return redirect()->route('utilisateurs.index');
     }
 
@@ -125,6 +129,7 @@ class UtilisateurController extends Controller
     {
         $utilisateur = Utilisateur::find($id);
         $utilisateur->delete();
+        Session::flash('success', 'le compte a été supprimé avec succès!');
         return redirect()->route('utilisateurs.index');
     }
     public function reset($id)
@@ -140,6 +145,37 @@ class UtilisateurController extends Controller
         $utilisateur = Utilisateur::find($id);
         $utilisateur->mot_passe = Hash::make($request->input('password'));
         $utilisateur->save();
+        Session::flash('success', 'le mot de passe a été réinitialisé avec succès!');
         return redirect()->route('utilisateurs.index');
+    }
+    public function login(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|exists:utilisateurs,code_Utl',
+        ]);
+        $current_password = $request->input('password');
+        $codeuser = $request->input('username');
+        $pass = Utilisateur::verifie($codeuser)->first();
+        if (Hash::check($current_password, $pass->mot_passe)) {
+
+            return redirect()->route('accueil');
+
+        } else {
+
+            $errors = new MessageBag;
+            $errors->add('password',
+                'Le mot de passe est incorrecte');
+
+            return view('login.login', ['codeuser' => $codeuser])->withErrors($errors);
+
+        }
+    }
+    public function accueil()
+    {
+        return view('layouts.side_navbar');
+    }
+    public function identification()
+    {
+        return view('login.login');
     }
 }
