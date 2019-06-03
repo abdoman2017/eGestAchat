@@ -10,6 +10,10 @@ use Session;
 
 class FournisseurController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('verifie');
+    }
     public function index()
     {
         $recherche = request('recherche');

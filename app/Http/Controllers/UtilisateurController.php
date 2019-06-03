@@ -12,6 +12,10 @@ use Session;
 
 class UtilisateurController extends Controller
 {
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -63,7 +67,6 @@ class UtilisateurController extends Controller
         $utilisateur->save();
         Session::flash('success', 'le compte a été crée avec succès!');
         return redirect()->route('utilisateurs.index');
-
     }
 
     /**
@@ -159,15 +162,15 @@ class UtilisateurController extends Controller
         if (Hash::check($current_password, $pass->mot_passe)) {
 
             return redirect()->route('accueil');
-
         } else {
 
             $errors = new MessageBag;
-            $errors->add('password',
-                'Le mot de passe est incorrecte');
+            $errors->add(
+                'password',
+                'Le mot de passe est incorrecte'
+            );
 
             return view('login.login', ['codeuser' => $codeuser])->withErrors($errors);
-
         }
     }
     public function accueil()
