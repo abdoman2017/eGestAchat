@@ -109,13 +109,12 @@
     </script>
     <script>
     @if(Session::has('success'))
-    toastr.success("{{ Session::get('success') }}")
-    toastr.options = {
+    toastr.success("{{ Session::get('success') }}", "", {
         "closeButton": false,
         "debug": false,
         "newestOnTop": false,
         "progressBar": false,
-        "positionClass": "toast-top-center",
+        "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "300",
@@ -126,7 +125,7 @@
         "hideEasing": "linear",
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
-    }
+    }).css("width", "500px")
 
     @endif
     </script>
